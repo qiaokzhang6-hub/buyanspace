@@ -1,0 +1,2431 @@
+<meta property="og:title" content="BUYANSPACE"><meta property="og:image" content="https://lf3-static.bytednsdoc.com/obj/eden-cn/ylcylz_fsph_ryhs/ljhwZthlaukjlkulzlp/feisuda/avatar/9.svg"><link rel="icon" href="https://lf3-static.bytednsdoc.com/obj/eden-cn/ylcylz_fsph_ryhs/ljhwZthlaukjlkulzlp/feisuda/avatar/9.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BUYANSPACE — 闻香的尽头，一定有 BUYANSPACE</title>
+<meta name="description" content="BUYANSPACE 设计事务所旗下东方香氛品牌，三代传承制香，六大系列二十二款香型。2026年10月28日深圳南头古城、天津万象城双城同步开业。">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@300;400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+:root {
+  --bg: #F5F2ED;
+  --bg-soft: #EDE8E0;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F0EBE3;
+  --text: #2A2826;
+  --text-dim: #6B6560;
+  --text-faint: #9A9388;
+  --accent: #8B6F47;
+  --accent-soft: #A08560;
+  --accent-glow: rgba(139,111,71,0.08);
+  --line: #D8D2C6;
+  --line-soft: #E5E0D5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans SC', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+a { color: var(--accent); text-decoration: none; }
+
+.page { display: none; min-height: 100vh; padding-top: 80px; }
+.page.active { display: block; animation: fadeIn 0.5s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Navigation ===== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 48px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(245,242,237,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.nav-logo {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--text);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.nav-logo:hover { color: var(--accent); }
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-links a {
+  display: block;
+  padding: 8px 16px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.nav-mobile-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ===== Hero (Home) ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-portrait {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+}
+
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-logo-overlay {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(20px, 3vw, 36px);
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.9);
+  z-index: 2;
+  white-space: nowrap;
+}
+.hero-logo-overlay sup {
+  font-size: 0.4em;
+  margin-left: 4px;
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 80px 24px 60px;
+  text-align: center;
+  background: linear-gradient(transparent, rgba(245,242,237,0.95) 40%);
+}
+
+.hero-brand {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+.hero-brand span { color: var(--accent); font-weight: 600; }
+
+.hero-slogan {
+  font-size: clamp(16px, 2.5vw, 22px);
+  color: var(--text);
+  letter-spacing: 0.3em;
+  margin-bottom: 16px;
+  font-family: 'Noto Serif SC', serif;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--accent);
+  margin: 32px auto;
+}
+
+.hero-sub {
+  font-size: 14px;
+  color: var(--text-dim);
+  max-width: 560px;
+  line-height: 2;
+  margin: 0 auto;
+}
+
+.hero-cta {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 36px;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Noto Sans SC', sans-serif;
+}
+.btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+}
+.btn-primary:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+}
+
+/* ===== Section Common ===== */
+.section {
+  padding: 100px 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-alt {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.section-label {
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: 24px;
+  max-width: 800px;
+}
+.section-title em { font-style: normal; color: var(--accent); }
+
+.section-desc {
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 2;
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+/* ===== Highlights ===== */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.highlight {
+  background: var(--bg);
+  padding: 48px 36px;
+  text-align: center;
+  transition: background 0.3s;
+}
+.highlight:hover { background: var(--bg-card); }
+
+.highlight-num {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 56px;
+  font-weight: 400;
+  color: var(--accent);
+  margin-bottom: 16px;
+  letter-spacing: 0.15em;
+}
+
+.highlight-label {
+  font-size: 14px;
+  color: var(--text);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.highlight-desc {
+  font-size: 12px;
+  color: var(--text-faint);
+  line-height: 1.8;
+}
+
+/* ===== Product Cards ===== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.product-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  padding: 40px 32px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.product-card:hover {
+  border-color: var(--accent-soft);
+  transform: translateY(-4px);
+  background: var(--bg-hover);
+}
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+.product-card:hover::before { transform: scaleX(1); }
+
+.product-series {
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.3em;
+  margin-bottom: 16px;
+}
+
+.product-name {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 26px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.product-count {
+  font-size: 13px;
+  color: var(--text-faint);
+  margin-bottom: 20px;
+}
+
+.product-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.9;
+}
+
+/* ===== Featured ===== */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.featured-item {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  padding: 36px 20px;
+  text-align: center;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.featured-item:hover {
+  border-color: var(--accent);
+  background: var(--bg);
+  transform: translateY(-4px);
+}
+
+.featured-num {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+}
+
+.featured-name {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.featured-series {
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.featured-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+/* ===== Opening Banner ===== */
+.opening-banner {
+  background: linear-gradient(135deg, var(--bg-soft) 0%, var(--bg-card) 100%);
+  border: 1px solid var(--line);
+  padding: 80px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.opening-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 40%);
+  animation: rotate 30s linear infinite;
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.opening-date {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(56px, 10vw, 100px);
+  font-weight: 300;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  position: relative;
+  z-index: 1;
+}
+
+.opening-title {
+  font-size: clamp(18px, 2.5vw, 26px);
+  color: var(--text);
+  margin: 16px 0;
+  letter-spacing: 0.15em;
+  position: relative;
+  z-index: 1;
+}
+
+.opening-cities {
+  font-size: 15px;
+  color: var(--text-dim);
+  letter-spacing: 0.3em;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+.opening-cities span { color: var(--accent); }
+
+/* ===== Footer ===== */
+.footer {
+  padding: 64px 48px 32px;
+  border-top: 1px solid var(--line-soft);
+  background: var(--bg-soft);
+}
+
+.footer-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-brand h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 22px;
+  letter-spacing: 0.2em;
+  margin-bottom: 12px;
+}
+.footer-brand p {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 2;
+  max-width: 320px;
+}
+
+.footer-col h4 {
+  font-size: 13px;
+  color: var(--text);
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a {
+  font-size: 13px;
+  color: var(--text-dim);
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-copy {
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+}
+.footer-slogan {
+  font-size: 12px;
+  color: var(--text-faint);
+  letter-spacing: 0.2em;
+}
+
+/* ===== Story Page ===== */
+.story-hero {
+  padding: 80px 48px 60px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.story-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.story-text p {
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 2.2;
+  margin-bottom: 24px;
+}
+.story-text .lead {
+  font-size: 18px;
+  color: var(--text);
+  line-height: 2;
+  margin-bottom: 32px;
+}
+
+.story-visual {
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--bg-soft) 0%, var(--line-soft) 100%);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-visual-number {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--accent);
+  position: relative;
+  z-index: 1;
+}
+.story-visual-label {
+  font-size: 14px;
+  color: var(--text);
+  letter-spacing: 0.3em;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+.story-visual-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 8px;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+  max-width: 800px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px; top: 0; bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+.timeline-item {
+  position: relative;
+  padding-bottom: 40px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -36px; top: 8px;
+  width: 9px; height: 9px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.timeline-city {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 22px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.timeline-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+/* Philosophy cards */
+.philosophy-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+.philosophy-card {
+  padding: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-left: 2px solid var(--accent);
+}
+.philosophy-card h4 {
+  font-size: 24px;
+  color: var(--accent);
+  margin-bottom: 16px;
+  letter-spacing: 0.1em;
+}
+.philosophy-card p {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 2;
+}
+
+/* ===== Products Page ===== */
+.product-detail {
+  margin-bottom: 80px;
+}
+.product-detail-header {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.product-detail-num {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+}
+.product-detail-name {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 32px;
+  color: var(--text);
+}
+.product-detail-tag {
+  font-size: 12px;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+}
+.product-detail-desc {
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 2;
+  margin-bottom: 32px;
+  max-width: 700px;
+}
+
+.scent-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.scent-item {
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  transition: all 0.3s;
+}
+.scent-item:hover {
+  border-color: var(--accent-soft);
+  background: var(--bg-hover);
+}
+.scent-code {
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+.scent-name {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.scent-note {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+.scent-mood {
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* ===== Featured Page ===== */
+.featured-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 64px;
+  padding: 48px;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+}
+.featured-detail:nth-child(even) { direction: rtl; }
+.featured-detail:nth-child(even) > * { direction: ltr; }
+
+.featured-detail-visual {
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.featured-detail-visual::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(245,242,237,0.95) 100%);
+}
+.featured-detail-num {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 16px;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  position: relative;
+  z-index: 1;
+}
+.featured-detail-name {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 42px;
+  color: var(--text);
+  margin: 12px 0;
+  position: relative;
+  z-index: 1;
+}
+.featured-detail-series {
+  font-size: 13px;
+  color: var(--text-faint);
+  letter-spacing: 0.2em;
+  position: relative;
+  z-index: 1;
+}
+
+.featured-detail-info h3 {
+  font-size: 20px;
+  color: var(--accent);
+  margin-bottom: 16px;
+  letter-spacing: 0.1em;
+}
+.featured-detail-info p {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 2;
+  margin-bottom: 16px;
+}
+.featured-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+.featured-tag {
+  padding: 6px 14px;
+  font-size: 11px;
+  color: var(--accent);
+  border: 1px solid var(--accent-soft);
+  letter-spacing: 0.1em;
+}
+
+/* ===== Stores Page ===== */
+.store-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  padding: 56px;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  margin-bottom: 32px;
+}
+.store-info h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 28px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.store-city {
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.3em;
+  margin-bottom: 24px;
+}
+.store-detail {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 2;
+  margin-bottom: 12px;
+}
+.store-detail strong {
+  color: var(--text);
+  font-weight: 500;
+  display: inline-block;
+  width: 80px;
+}
+.store-visual {
+  aspect-ratio: 4/3;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.store-visual::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(245,242,237,0.9) 100%);
+}
+.store-visual-icon {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 28px;
+  color: var(--accent);
+  position: relative;
+  z-index: 1;
+}
+.store-visual-label {
+  font-size: 13px;
+  color: var(--text);
+  letter-spacing: 0.2em;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.market-info {
+  padding: 40px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  margin-top: 48px;
+}
+
+.product-packaging-showcase {
+  margin: 0 auto 48px;
+  max-width: 600px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.product-packaging-showcase img {
+  width: 100%;
+  display: block;
+}
+
+.brand-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 0;
+  background: var(--bg-soft);
+}
+.brand-showcase-image {
+  overflow: hidden;
+}
+.brand-showcase-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  aspect-ratio: 4/5;
+  display: block;
+  background: var(--bg);
+}
+.brand-showcase-text {
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.brand-showcase-label {
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.3em;
+  margin-bottom: 24px;
+}
+.brand-showcase-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 32px;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+.brand-showcase-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 2.2;
+  margin-bottom: 32px;
+}
+.brand-showcase-quote {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 18px;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  margin-bottom: 32px;
+  font-style: italic;
+}
+.brand-showcase-btn {
+  font-size: 13px;
+  color: var(--text);
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  display: inline-block;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 8px;
+  width: fit-content;
+  transition: all 0.3s;
+}
+.brand-showcase-btn:hover {
+  color: var(--accent);
+}
+
+.product-closeup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 80px 0;
+  border: 1px solid var(--line);
+  background: var(--bg);
+}
+.product-closeup-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 0;
+}
+.product-closeup img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.product-closeup-text {
+  padding: 64px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg-soft);
+}
+.product-closeup-label {
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.3em;
+  margin-bottom: 16px;
+}
+.product-closeup-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 28px;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.product-closeup-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 2;
+}
+
+.brand-hero-image {
+  margin: 64px 0;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.brand-hero-image img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 3/4;
+  object-fit: contain;
+  background: var(--bg);
+}
+.brand-hero-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 48px 32px 32px;
+  background: linear-gradient(transparent, rgba(245,242,237,0.95));
+  text-align: center;
+}
+.brand-hero-caption p {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  color: var(--text);
+  letter-spacing: 0.3em;
+  margin: 0;
+}
+
+.store-gallery {
+  margin-top: 64px;
+}
+.store-gallery h3 {
+  font-size: 24px;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
+}
+.store-gallery .gallery-sub {
+  font-size: 13px;
+  color: var(--text-faint);
+  letter-spacing: 0.2em;
+  margin-bottom: 32px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.gallery-item {
+  aspect-ratio: 16/10;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.gallery-item:hover {
+  border-color: var(--accent-soft);
+  transform: translateY(-4px);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s;
+  background: var(--bg);
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+.gallery-item .gallery-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(transparent, rgba(245,242,237,0.95));
+  font-size: 12px;
+  color: var(--text);
+  letter-spacing: 0.15em;
+}
+.market-info h3 {
+  font-size: 22px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.market-info p {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 2;
+}
+
+/* ===== Contact Page ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.contact-info h3 {
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 24px;
+  letter-spacing: 0.1em;
+}
+.contact-item {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.contact-item:last-child { border-bottom: none; }
+.contact-label {
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+.contact-value {
+  font-size: 15px;
+  color: var(--text);
+}
+.contact-value a { color: var(--text-dim); }
+.contact-value a:hover { color: var(--accent); }
+
+.contact-form {
+  padding: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+}
+.form-group { margin-bottom: 24px; }
+.form-group label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .featured-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-content { grid-template-columns: 1fr 1fr; }
+  .scent-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .nav-mobile-btn { display: block; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px; left: 0; right: 0;
+    background: var(--bg-soft);
+    padding: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section { padding: 60px 24px; }
+  .highlights { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+  .featured-grid { grid-template-columns: 1fr; }
+  .story-content, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .philosophy-cards { grid-template-columns: 1fr; }
+  .featured-detail { grid-template-columns: 1fr; padding: 32px; }
+  .featured-detail:nth-child(even) { direction: ltr; }
+  .store-card { grid-template-columns: 1fr; padding: 32px; }
+  .scent-list { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .product-closeup { grid-template-columns: 1fr; }
+  .product-closeup-text { padding: 32px 24px; }
+  .brand-showcase { grid-template-columns: 1fr; }
+  .brand-showcase-text { padding: 48px 24px; }
+  .brand-showcase-title { font-size: 24px; }
+  .footer-content { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .hero-cta { flex-direction: column; width: 100%; max-width: 280px; }
+  .btn { width: 100%; text-align: center; }
+}
+/* 隐藏平台水印 */
+[class*="watermark"], [class*="badge"], [class*="brand-mark"],
+[class*="app-builder"], [id*="watermark"], [id*="badge"],
+iframe[src*="doubao"], iframe[src*="aiforce"] {
+  display: none !important;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<nav class="nav">
+  <div class="nav-logo" onclick="navigate('home')">BUYAN<span>SPACE</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" onclick="navigate('home')" class="active">首页</a></li>
+    <li><a href="#story" onclick="navigate('story')">品牌故事</a></li>
+    <li><a href="#space" onclick="navigate('space')">空间设计</a></li>
+    <li><a href="#products" onclick="navigate('products')">产品系列</a></li>
+    <li><a href="#featured" onclick="navigate('featured')">超级主推</a></li>
+    <li><a href="#stores" onclick="navigate('stores')">门店信息</a></li>
+    <li><a href="#guidelines" onclick="navigate('guidelines')">品牌手册</a></li>
+    <li><a href="#contact" onclick="navigate('contact')">联系我们</a></li>
+  </ul>
+  <button class="nav-mobile-btn" onclick="toggleMobileNav()">☰</button>
+</nav>
+
+<!-- ===== HOME PAGE ===== -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-portrait">
+      <img loading="lazy" decoding="async" src="images/img_23.jpg" alt="BUYANSPACE">
+      <div class="hero-overlay">
+        <p class="hero-slogan">乍见之欢，不如久处不厌</p>
+        <div class="hero-divider"></div>
+        <p class="hero-sub">闻香的尽头，一定有 BUYANSPACE</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="navigate('products')">探索产品</button>
+          <button class="btn" onclick="navigate('story')">品牌故事</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="highlights">
+      <div class="highlight">
+        <div class="highlight-num">貳拾貳</div>
+        <div style="font-size:12px; color:var(--text-faint); letter-spacing:0.1em; margin-bottom:8px;">22 Kinds</div>
+        <div class="highlight-label">款香型</div>
+        <div style="font-size:11px; color:var(--text-faint); letter-spacing:0.1em; margin-bottom:8px;">Fragrances</div>
+        <div class="highlight-desc">六大系列，从木质到古方，覆盖所有场景</div>
+        <div style="font-size:11px; color:var(--text-faint); letter-spacing:0.05em; margin-top:4px;">Six collections, from woody to classical, for every moment</div>
+      </div>
+      <div class="highlight">
+        <div class="highlight-num">叁代</div>
+        <div style="font-size:12px; color:var(--text-faint); letter-spacing:0.1em; margin-bottom:8px;">3 Generations</div>
+        <div class="highlight-label">传承制香</div>
+        <div style="font-size:11px; color:var(--text-faint); letter-spacing:0.1em; margin-bottom:8px;">Heritage Craft</div>
+        <div class="highlight-desc">纯手工纯植物原料，近80%工序匠人亲手完成</div>
+        <div style="font-size:11px; color:var(--text-faint); letter-spacing:0.05em; margin-top:4px;">Handcrafted with pure natural ingredients</div>
+      </div>
+      <div class="highlight">
+        <div class="highlight-num">六城</div>
+        <div style="font-size:12px; color:var(--text-faint); letter-spacing:0.1em; margin-bottom:8px;">6 Cities</div>
+        <div class="highlight-label">设计足迹</div>
+        <div style="font-size:11px; color:var(--text-faint); letter-spacing:0.1em; margin-bottom:8px;">Design Footprint</div>
+        <div class="highlight-desc">深圳 · 北京 · 天津 · 洛杉矶 · 香港 · 新加坡</div>
+        <div style="font-size:11px; color:var(--text-faint); letter-spacing:0.05em; margin-top:4px;">Shenzhen · Beijing · Tianjin · Los Angeles · Hong Kong · Singapore</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="section">
+      <p class="section-label">Product Series</p>
+      <h2 class="section-title">六大系列，<em>二十二款</em>香型</h2>
+      <p class="section-desc">从木质到花香，从果香到茶甜，从手搓花瓣到古方经典。每一款都有它独特的情绪和场景。</p>
+      <div class="products-grid">
+        <div class="product-card" onclick="navigate('products')">
+          <div class="product-series">01 / 木质调</div>
+          <div class="product-name">玄枢</div>
+          <div class="product-count">3款香型</div>
+          <div class="product-desc">定中枢自安，压得住场。以檀、松木为骨，香气干净厚重、不张扬、不甜腻。</div>
+        </div>
+        <div class="product-card" onclick="navigate('products')">
+          <div class="product-series">02 / 花香草木调</div>
+          <div class="product-name">观微</div>
+          <div class="product-count">3款香型</div>
+          <div class="product-desc">照观心于微，闻见自己。清雅草木花香，清冷细腻、干净通透。</div>
+        </div>
+        <div class="product-card" onclick="navigate('products')">
+          <div class="product-series">03 / 果香调</div>
+          <div class="product-name">和融</div>
+          <div class="product-count">3款香型</div>
+          <div class="product-desc">福煦然生春，福绥自至。温柔治愈的清甜果香，温润雅致、甜而不腻。</div>
+        </div>
+        <div class="product-card" onclick="navigate('products')">
+          <div class="product-series">04 / 茶甜食调</div>
+          <div class="product-name">归息</div>
+          <div class="product-count">3款香型</div>
+          <div class="product-desc">安各归其根，尘劳暂放。茶汤温润搭配奶香柔和，疗愈收尾之味。</div>
+        </div>
+        <div class="product-card" onclick="navigate('products')">
+          <div class="product-series">05 / 花瓣香</div>
+          <div class="product-name">微芳</div>
+          <div class="product-count">5款香型</div>
+          <div class="product-desc">微为细微，芳为芬芳。手搓真实花瓣，茉莉微凉、玉兰微甜。</div>
+        </div>
+        <div class="product-card" onclick="navigate('products')">
+          <div class="product-series">06 / 古方经典</div>
+          <div class="product-name">古韵</div>
+          <div class="product-count">5款香型</div>
+          <div class="product-desc">古为古方，韵为韵味。龙涎御殿之贵、二苏旧局之文、鹅梨帐中之暖。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brand-showcase">
+    <div class="brand-showcase-image">
+      <img loading="lazy" decoding="async" src="images/img_23.jpg" alt="BUYANSPACE品牌形象">
+    </div>
+    <div class="brand-showcase-text">
+      <p class="brand-showcase-label">BRAND STORY</p>
+      <h3 class="brand-showcase-title">设计事务所<br>旗下东方香氛品牌</h3>
+      <p class="brand-showcase-desc">从深圳、北京、天津到洛杉矶、香港，我们用设计的方式打开东方高级感生活。三代传承制香世家，近80%工序由匠人亲手完成。</p>
+      <p class="brand-showcase-quote">"乍见之欢，不如久处不厌"</p>
+      <div class="brand-showcase-btn" onclick="navigate('story')">了解品牌故事 →</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Signature Collection</p>
+    <h2 class="section-title">超级主推 · <em>进阶高级款</em></h2>
+    <p class="section-desc">在22款香中精选5款，作为品牌的进阶高级款代表。经过三代制香世家的反复调配，最能体现"东方香高级感"。</p>
+    <div class="featured-grid">
+      <div class="featured-item" onclick="navigate('featured')">
+        <div class="featured-num">No.1</div>
+        <div class="featured-name">青芜叙</div>
+        <div class="featured-series">玄枢 · 木质调</div>
+        <div class="featured-desc">职场进阶款，镇场之香</div>
+      </div>
+      <div class="featured-item" onclick="navigate('featured')">
+        <div class="featured-num">No.2</div>
+        <div class="featured-name">檀汐泠</div>
+        <div class="featured-series">玄枢 · 木质调</div>
+        <div class="featured-desc">从容进阶款，淡定之香</div>
+      </div>
+      <div class="featured-item" onclick="navigate('featured')">
+        <div class="featured-num">No.4</div>
+        <div class="featured-name">红樽酿</div>
+        <div class="featured-series">观微 · 花香草木</div>
+        <div class="featured-desc">品味进阶款，文气之香</div>
+      </div>
+      <div class="featured-item" onclick="navigate('featured')">
+        <div class="featured-num">No.5</div>
+        <div class="featured-name">涧中棠</div>
+        <div class="featured-series">观微 · 花香草木</div>
+        <div class="featured-desc">治愈进阶款，清冽之香</div>
+      </div>
+      <div class="featured-item" onclick="navigate('featured')">
+        <div class="featured-num">No.12</div>
+        <div class="featured-name">蜜枕屿</div>
+        <div class="featured-series">归息 · 茶甜食调</div>
+        <div class="featured-desc">生活进阶款，安眠之香</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="section">
+      <div class="product-closeup">
+    <div class="product-closeup-img-wrap">
+      <img loading="lazy" decoding="async" src="images/img_19.jpg" alt="线香与水晶香插">
+    </div>
+    <div class="product-closeup-text">
+      <p class="product-closeup-label">CRAFTSMANSHIP</p>
+      <p class="product-closeup-title">一香一插，皆是造物</p>
+      <p class="product-closeup-desc">天然水晶原石香插，每一块都是独一无二的自然馈赠。线香燃起，青烟与光影共舞。</p>
+    </div>
+  </div>
+
+  <div class="opening-banner">
+        <p class="section-label" style="text-align:center;">Grand Opening</p>
+        <div class="opening-date">10.28</div>
+        <div class="opening-title">双城同步开业</div>
+        <div class="opening-cities">深圳 <span>·</span> 天津</div>
+        <button class="btn btn-primary" onclick="navigate('stores')">查看门店详情</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== STORY PAGE ===== -->
+<div class="page" id="page-story">
+  <div class="story-hero" style="background: url('images/img_31.jpg') center/cover no-repeat; background-color: #C4A67B; min-height: 70vh; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 80px;">
+    <p class="section-label" style="color: rgba(255,255,255,0.9);">Our Story</p>
+    <h1 class="section-title" style="color: #fff;">20多年空间设计，<br>把<em style="color: rgba(255,255,255,0.85);">家的气味</em>做成了线香</h1>
+  </div>
+
+  <section class="section" style="padding-top:0;">
+    <div class="story-content">
+      <div class="story-text">
+        <p class="lead">我们是一家做了20多年的空间设计事务所，设计足迹遍布全球——深圳、北京、天津、洛杉矶、香港、新加坡。</p>
+        <p>20多年里，我们设计过无数人的家。每一个家都有它独特的气质，每一种气质都应该有一种对应的气味。</p>
+        <p>但我们发现，市面上的香薰要么太西方、太浓烈，要么太廉价、太工业。缺少一种真正属于东方、属于家、属于日常的香气。</p>
+        <p>于是我们找到了三代传承的制香世家，用设计师的审美和对家的理解，做出了这22款线香。</p>
+        <p><strong style="color:var(--text);">不是卖香，是卖"家的情绪"。</strong></p>
+      </div>
+      <div class="story-visual">
+        <div class="story-visual-number">三代</div>
+        <div class="story-visual-label">传承制香</div>
+        <div class="story-visual-desc">纯手工 · 纯植物原料<br>近80%工序匠人亲手完成</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Brand Philosophy</p>
+    <h2 class="section-title">乍见之欢，<em>不如久处不厌</em></h2>
+    <p class="section-desc">品牌名的中文内核，取自两个东方哲学概念。</p>
+    <div class="philosophy-cards">
+      <div class="philosophy-card">
+        <h4>不厌</h4>
+        <p>长久相处而不感到厌烦。不是瞬间的惊艳，而是日复一日的陪伴。真正的高级，是经得起时间的考验。我们相信，真正好的东西，不是让你一眼惊艳然后忘掉，而是让你每天用、越用越喜欢，最后成为生活里离不开的那个存在。香是如此，设计是如此，人与人的相处也是如此。</p>
+      </div>
+      <div class="philosophy-card">
+        <h4>物序</h4>
+        <p>万物各归其序。尊重每一件物品本来的样子，尊重每一种香气本来的轨迹，尊重每一个人本来的节奏。万物有秩序，事物有条理，自然有节律。线香的燃烧有它的节奏，青烟的升腾有它的轨迹，人的呼吸有它的频率。物序，就是尊重万物本来的样子。</p>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:48px; font-size:15px; color:var(--text-dim); line-height:2;">
+      "不厌"是态度，"物序"是哲学。<br>
+      合在一起，就是我们想做的事：做一些让人久处不厌的好物，让万物各归其序，让生活回到它本来该有的样子。
+    </p>
+  </section>
+
+  <section class="section-alt">
+    <div class="section">
+      <p class="section-label">Design Footprint</p>
+      <h2 class="section-title">设计足迹</h2>
+      <p class="section-desc">从深圳到香港，从国内到海外，20多年的设计经验沉淀成对空间、对生活、对美的理解。</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-city">深圳</div>
+          <div class="timeline-desc">品牌发源地，南头古城首店落地。无数高端住宅与商业空间设计项目。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-city">北京</div>
+          <div class="timeline-desc">多个高端住宅与商业空间设计项目，北方美学与东方意境的融合。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-city">天津</div>
+          <div class="timeline-desc">万象城店同步开业，北方市场的重要布局。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-city">洛杉矶</div>
+          <div class="timeline-desc">海外设计项目，东西方美学交融，国际化视野的积累。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-city">香港</div>
+          <div class="timeline-desc">亚太设计交流，品牌视野拓展，中西文化交汇点的灵感汲取。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-city">新加坡</div>
+          <div class="timeline-desc">东南亚设计项目，热带东方美学的探索与实践。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="brand-hero-image">
+    <img loading="lazy" decoding="async" src="images/img_38.jpg" alt="BUYANSPACE品牌形象">
+    <div class="brand-hero-caption">
+      <p>乍见之欢，不如久处不厌</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SPACE DESIGN PAGE ===== -->
+<div class="page" id="page-space">
+  <div class="story-hero" style="background: url('images/img_16.jpg') center/cover no-repeat; min-height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 24px;">
+    <p class="section-label" style="color: rgba(255,255,255,0.9);">Space Design</p>
+    <h1 class="section-title" style="color: #fff;">东方散香铺子，<br>商场里的<em style="color: rgba(255,255,255,0.85);">一席山林</em></h1>
+  </div>
+
+  <section class="section" style="background: url('images/img_16.jpg') center/cover no-repeat;">
+    <p class="section-label" style="color: rgba(255,255,255,0.9);">Design Concept</p>
+    <h2 class="section-title" style="color: #fff;">设计理念</h2>
+    <p class="section-desc" style="color: rgba(255,255,255,0.8);">以东方木结构为骨架，纱幔为顶，木作柜台为体，在现代商场里造一席可停留的山林。</p>
+    <div class="philosophy-cards" style="margin-top: 48px;">
+      <div class="philosophy-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);">
+        <h4 style="color: #fff;">木结构 · 东方骨架</h4>
+        <p style="color: rgba(255,255,255,0.8);">取自传统木构建筑的梁柱体系，不用一颗钉子，全榫卯结构。深棕木色沉稳大气，在玻璃与不锈钢的商场环境里，自成一方东方天地。</p>
+      </div>
+      <div class="philosophy-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);">
+        <h4 style="color: #fff;">纱幔顶 · 烟雾意象</h4>
+        <p style="color: rgba(255,255,255,0.8);">半透明纱幔如青烟缭绕，金色线条勾边，既有东方意境的缥缈，又不失现代商业的精致。光线透过纱幔洒下来，像阳光穿过林间薄雾。</p>
+      </div>
+    </div>
+    <div class="philosophy-cards" style="margin-top: 24px;">
+      <div class="philosophy-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);">
+        <h4 style="color: #fff;">石础脚 · 自然根基</h4>
+        <p style="color: rgba(255,255,255,0.8);">每根木柱脚下都有石质柱础，呼应古建"木柱石础"的传统。木与石的对话，是人工与自然的握手，也是品牌扎根于土地的寓意。</p>
+      </div>
+      <div class="philosophy-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);">
+        <h4 style="color: #fff;">柜台 · 陈列如林</h4>
+        <p style="color: rgba(255,255,255,0.8);">高低错落的柜台像树木般生长，层板灯带如林间光影。22款线香陈列其上，像22种香气在山林里各归其位，各有其序。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="section">
+      <p class="section-label">Store Gallery</p>
+      <h2 class="section-title">两大点位方案</h2>
+      <p class="section-desc">适配商场不同位置与面积，东方意境不变。</p>
+
+      <!-- 方案一：东方亭阁款 -->
+      <div style="margin-top: 64px;">
+        <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px; color: var(--text);">方案一 · 东方亭阁款</h3>
+        <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 32px;">木结构顶棚 + 纱幔顶，适合商场中庭大点位，氛围感最强。</p>
+
+        <img loading="lazy" decoding="async" src="images/img_39.jpg" alt="东方亭阁 设计效果" style="width:100%; border-radius: 4px; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+        <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">设计效果图</p>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_35.png" alt="正面视角" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">正面视角</p>
+          </div>
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_36.png" alt="入口视角" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">入口视角</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_44.png" alt="侧面视角" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">侧面视角</p>
+          </div>
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_07.png" alt="全景视角" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">全景视角</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_29.png" alt="斜角视角" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">斜角视角</p>
+          </div>
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_34.png" alt="后视视角" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">后视视角</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 方案二：多经点位款 -->
+      <div style="margin-top: 80px;">
+        <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px; color: var(--text);">多经点位设计方案</h3>
+        <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 32px;">开放式柜台布局，灵活适配各种商场点位，功能紧凑。</p>
+
+        <img loading="lazy" decoding="async" src="images/img_03.jpg" alt="多经点位 设计效果" style="width:100%; border-radius: 4px; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+        <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">设计效果图</p>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_37.png" alt="正面视角" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">正面视角</p>
+          </div>
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_26.png" alt="斜角视角" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">斜角视角</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_14.png" alt="侧面视角" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">侧面视角</p>
+          </div>
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_32.png" alt="展示区视角" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">展示区视角</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_20.png" alt="品牌墙视角" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">品牌墙视角</p>
+          </div>
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_27.png" alt="正面全景" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">正面全景</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_05.png" alt="俯视图" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">俯视图</p>
+          </div>
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_09.png" alt="斜角全景" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">斜角全景</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_02.png" alt="侧面全景" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">侧面全景</p>
+          </div>
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_41.png" alt="中岛正面" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">中岛正面</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_25.png" alt="中岛斜角" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">中岛斜角</p>
+          </div>
+          <div>
+            <img loading="lazy" decoding="async" src="images/img_08.png" alt="中岛侧面" style="width:100%; border-radius: 4px; background: var(--bg);">
+            <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">中岛侧面</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">Design Detail</p>
+    <h2 class="section-title">细节见真章</h2>
+    <div class="philosophy-cards" style="margin-top: 48px;">
+      <div class="philosophy-card">
+        <h4>可移动 · 快闪逻辑</h4>
+        <p>所有柜体带轮，可拆装、可重组。像一张可以随时带走的东方盒子，无论商场、市集、古城小巷，都能落地生根。</p>
+      </div>
+      <div class="philosophy-card">
+        <h4>灯光 · 氛围感</h4>
+        <p>层板灯带暖光3000K，纱幔漫射顶光，柜台底部暗藏灯带。光线不刺眼，像夕阳下的林间，让人想慢下来，闻一闻，停一停。</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== PRODUCTS PAGE ===== -->
+<div class="page" id="page-products">
+  <div class="story-hero">
+    <p class="section-label">Product Series</p>
+    <h1 class="section-title">六大系列，<em>二十二款</em>香型</h1>
+    <p class="section-desc">从木质到花香，从果香到茶甜，从手搓花瓣到古方经典。每一款都有它独特的情绪和场景。</p>
+  </div>
+
+  <div class="product-packaging-showcase">
+    <img loading="lazy" decoding="async" src="images/img_04.jpg" alt="BUYANSPACE产品包装">
+  </div>
+
+  <!-- 包装设计展示 -->
+  <section class="section" style="padding-top: 0;">
+    <p class="section-label">Packaging Design</p>
+    <h2 class="section-title">包装即态度</h2>
+    <p class="section-desc">牛皮纸、麻绳、原木盒——不做多余的装饰，让材料本身说话。每一件包装都可以留下来，做收纳、做摆件、做香插。</p>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px;">
+      <div>
+        <img loading="lazy" decoding="async" src="images/img_01.jpg" alt="短款线香包装" style="width:100%; border-radius: 4px; box-shadow: 0 4px 24px rgba(0,0,0,0.06);">
+        <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">短款线香 · 牛皮纸卷装</p>
+      </div>
+      <div>
+        <img loading="lazy" decoding="async" src="images/img_43.jpg" alt="长款线香包装" style="width:100%; border-radius: 4px; box-shadow: 0 4px 24px rgba(0,0,0,0.06);">
+        <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">长款线香 · 牛皮纸卷装</p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+      <div>
+        <img loading="lazy" decoding="async" src="images/img_30.jpg" alt="三角木盒包装" style="width:100%; border-radius: 4px; box-shadow: 0 4px 24px rgba(0,0,0,0.06);">
+        <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-faint);">三角木盒 · 麻绳捆绑</p>
+      </div>
+      <div>
+        <img loading="lazy" decoding="async" src="images/img_42.jpg" alt="套装包装" style="width:100%; border-radius: 4px; box-shadow: 0 4px 24px rgba(0,0,0,0.06);">
+        <p style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-dim);">三角木盒使用装 · 含天然水晶香插 + 6款线香小样</p>
+        <p style="text-align:center; margin-top:4px; font-size:11px; color:var(--text-faint); letter-spacing:0.05em;">Wooden Gift Set · Crystal Holder + 6 Trial Scents</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 制香工艺 -->
+  <section class="section-alt">
+    <div class="section">
+      <p class="section-label">Craftsmanship</p>
+      <h2 class="section-title">三代传承 · 手工制香</h2>
+      <p class="section-desc">从选材到窖藏，八道工序，全手工完成。不追求产量，只追求那一缕烟的分寸。</p>
+      <div style="margin-top: 48px;">
+        <img loading="lazy" decoding="async" src="images/img_15.jpg" alt="制香工艺八步" style="width:100%; border-radius: 4px; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+
+    <div class="product-detail">
+      <div class="product-detail-header">
+        <span class="product-detail-num">01</span>
+        <span class="product-detail-name">玄枢</span>
+        <span class="product-detail-tag">木质调 · 3款香型</span>
+      </div>
+      <p class="product-detail-desc">定中枢自安，压得住场。以檀、松木为骨，香气干净厚重、不张扬、不甜腻，自带沉稳克制的气场。不是取悦别人的香，是稳住自己气场、不乱心神的香。职场、事业、想要稳中求进，首选玄枢系列。</p>
+      <div class="scent-list">
+        <div class="scent-item">
+          <div class="scent-code">No.1</div>
+          <div class="scent-name">青芜叙</div>
+          <div class="scent-note">檀木+松木，干净厚重，不张扬不甜腻</div>
+          <div class="scent-mood">沉稳克制 · 商务洽谈</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">No.2</div>
+          <div class="scent-name">檀汐泠</div>
+          <div class="scent-note">沉稳木质，温润内敛，润物细无声</div>
+          <div class="scent-mood">从容淡定 · 重要会议</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">No.3</div>
+          <div class="scent-name">檀曜宸</div>
+          <div class="scent-note">厚重檀木，气场强大，镇场定局</div>
+          <div class="scent-mood">镇场定局 · 见大客户</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-detail">
+      <div class="product-detail-header">
+        <span class="product-detail-num">02</span>
+        <span class="product-detail-name">观微</span>
+        <span class="product-detail-tag">花香草木调 · 3款香型</span>
+      </div>
+      <p class="product-detail-desc">照观心于微，闻见自己。清雅草木花香，清冷细腻、干净通透，没有浓郁的脂粉感。这是一支向内修行、治愈情绪的香，不求外放的氛围，只求内心清明、思维澄澈。适合喜欢安静、独处、读书思考的人。</p>
+      <div class="scent-list">
+        <div class="scent-item">
+          <div class="scent-code">No.4</div>
+          <div class="scent-name">红樽酿</div>
+          <div class="scent-note">清雅草木花香，清冷细腻，干净通透</div>
+          <div class="scent-mood">静心清绪 · 读书思考</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">No.5</div>
+          <div class="scent-name">涧中棠</div>
+          <div class="scent-note">清冽海棠香，温润不甜腻，治愈浮躁</div>
+          <div class="scent-mood">治愈浮躁 · 午后独处</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">No.6</div>
+          <div class="scent-name">云岑松隐</div>
+          <div class="scent-note">雪松清冷，山林气息，思维澄澈</div>
+          <div class="scent-mood">思维澄澈 · 深度写作</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-detail">
+      <div class="product-detail-header">
+        <span class="product-detail-num">03</span>
+        <span class="product-detail-name">和融</span>
+        <span class="product-detail-tag">果香调 · 3款香型</span>
+      </div>
+      <p class="product-detail-desc">福煦然生春，福绥自至。温柔治愈的清甜果香，温润雅致、甜而不腻，是所有人都能接受的百搭香调。这款香主打和暖之气，调和心境与周遭氛围，让身心松弛、诸事顺遂。日常居家、会客待客、节庆祈福都很合适。</p>
+      <div class="scent-list">
+        <div class="scent-item">
+          <div class="scent-code">No.7</div>
+          <div class="scent-name">荔露棠</div>
+          <div class="scent-note">荔枝清甜，水润多汁，轻松愉悦</div>
+          <div class="scent-mood">轻松愉悦 · 朋友小聚</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">No.8</div>
+          <div class="scent-name">桃汐烬</div>
+          <div class="scent-note">桃子微醺，甜而不腻，浪漫温柔</div>
+          <div class="scent-mood">浪漫温柔 · 约会时刻</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">No.9</div>
+          <div class="scent-name">柚禄安</div>
+          <div class="scent-note">柚子清冽，干净通透，纳吉祈福</div>
+          <div class="scent-mood">纳吉祈福 · 日常居家</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-detail">
+      <div class="product-detail-header">
+        <span class="product-detail-num">04</span>
+        <span class="product-detail-name">归息</span>
+        <span class="product-detail-tag">茶/甜食调 · 3款香型</span>
+      </div>
+      <p class="product-detail-desc">安各归其根，尘劳暂放。归息是整套香里的「疗愈收尾之味」，茶汤的温润搭配奶香的柔和，烟火感温柔治愈。这一调不为登场，只为退场。把白天交出去的自己，一寸一寸领回来。</p>
+      <div class="scent-list">
+        <div class="scent-item">
+          <div class="scent-code">No.10</div>
+          <div class="scent-name">普洱涧</div>
+          <div class="scent-note">普洱茶香，温润醇厚，回甘悠长</div>
+          <div class="scent-mood">卸疲安神 · 茶席品茗</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">No.11</div>
+          <div class="scent-name">咖瑰叙</div>
+          <div class="scent-note">咖啡+玫瑰，醇厚中带花香，放松慢生活</div>
+          <div class="scent-mood">放松慢生活 · 下班回家</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">No.12</div>
+          <div class="scent-name">蜜枕屿</div>
+          <div class="scent-note">蜂蜜甜暖，温馨治愈，助眠静养</div>
+          <div class="scent-mood">助眠静养 · 睡前安神</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-detail">
+      <div class="product-detail-header">
+        <span class="product-detail-num">05</span>
+        <span class="product-detail-name">微芳</span>
+        <span class="product-detail-tag">花瓣香 · 5款香型</span>
+      </div>
+      <p class="product-detail-desc">微为细微，芳为芬芳。微是花香最细腻、最不易察觉的那一层，芳是花瓣手搓的本真气息。五味各有微态——茉莉微凉、玉兰微甜、玫瑰微柔、薰衣草微安、绿茶微醒。都是不声不响就漫过来的那点香，手搓真实花瓣的温和草本香。</p>
+      <div class="scent-list">
+        <div class="scent-item">
+          <div class="scent-code">P1</div>
+          <div class="scent-name">茉莉</div>
+          <div class="scent-note">清透甜润，不浓不腻，夏夜花田清透气场</div>
+          <div class="scent-mood">解郁宽胸 · 醒神松气</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">P2</div>
+          <div class="scent-name">玉兰</div>
+          <div class="scent-note">清冽高雅，不甜不腻，晨露初开净场气场</div>
+          <div class="scent-mood">宁心净场 · 安神缓虑</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">P3</div>
+          <div class="scent-name">玫瑰</div>
+          <div class="scent-note">浓郁馥郁，甜而不腻，温柔包裹女人气场</div>
+          <div class="scent-mood">疏肝悦己 · 活血调绪</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">P4</div>
+          <div class="scent-name">薰衣草</div>
+          <div class="scent-note">草本清冽，不浓不烈，普罗旺斯花田松弛</div>
+          <div class="scent-mood">缓压放松 · 疏解情绪</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">P5</div>
+          <div class="scent-name">绿茶</div>
+          <div class="scent-note">清苦回甘，不甜不腻，明前龙井清透气场</div>
+          <div class="scent-mood">醒神破困 · 疏肝净场</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-detail" style="margin-bottom:0;">
+      <div class="product-detail-header">
+        <span class="product-detail-num">06</span>
+        <span class="product-detail-name">古韵</span>
+        <span class="product-detail-tag">古方经典 · 5款香型</span>
+      </div>
+      <p class="product-detail-desc">古为古方，韵为韵味。古是流传千年的经典香方，韵是古方里藏着的那股岁月气韵。五味各有古意——龙涎御殿之贵、二苏旧局之文、鹅梨帐中之暖、老山凝韵之厚、雪中春信之雅。每一款都带着岁月沉淀的厚重，有出处、有故事、有讲究。</p>
+      <div class="scent-list">
+        <div class="scent-item">
+          <div class="scent-code">S1</div>
+          <div class="scent-name">龙涎香</div>
+          <div class="scent-note">龙涎香粉+茂名沉木+崖柏，海风咸润，琥珀温甜</div>
+          <div class="scent-mood">沉心镇场 · 贵气自华</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">S2</div>
+          <div class="scent-name">二苏旧局</div>
+          <div class="scent-note">墨韵+沉木+回甘，纸墨书香，清苦回甘</div>
+          <div class="scent-mood">墨香提笔 · 文思自涌</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">S3</div>
+          <div class="scent-name">鹅梨帐中香</div>
+          <div class="scent-note">梨汁清甜+沉檀温柔，梨韵清甜，暖余温长</div>
+          <div class="scent-mood">梨香帐暖 · 温柔入梦</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">S4</div>
+          <div class="scent-name">老山檀香</div>
+          <div class="scent-note">印度迈索尔老山檀，奶感醇厚，木质绵长</div>
+          <div class="scent-mood">檀韵凝香 · 心凝自定</div>
+        </div>
+        <div class="scent-item">
+          <div class="scent-code">S5</div>
+          <div class="scent-name">雪中春信</div>
+          <div class="scent-note">雪冽清甜+梅花暗香，雪冽清透，梅香暗涌</div>
+          <div class="scent-mood">梅香雪落 · 静心自清</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<!-- ===== FEATURED PAGE ===== -->
+<div class="page" id="page-featured">
+  <div class="story-hero">
+    <p class="section-label">Signature Collection</p>
+    <h1 class="section-title">闻香的尽头，<br>一定有 <em>BUYANSPACE</em></h1>
+    <p class="section-desc">五款超级主推 · 进阶高级款。在22款香中精选，经过三代制香世家反复调配，最能体现"东方香高级感"。</p>
+  </div>
+
+  <section class="section" style="padding-top:0;">
+
+    <div class="featured-detail">
+      <div class="featured-detail-visual" style="background:url('images/img_28.jpg') center/contain no-repeat; background-color:var(--bg);">
+        <div class="featured-detail-num">No.1</div>
+        <div class="featured-detail-name">青芜叙</div>
+        <div class="featured-detail-series">玄枢 · 木质调</div>
+      </div>
+      <div class="featured-detail-info">
+        <h3>职场进阶款 · 镇场之香</h3>
+        <p>以檀、松木为骨，前调干净清透，中调厚重沉稳，尾调绵长内敛，不张扬不甜腻，自带沉稳克制的气场。</p>
+        <p><strong style="color:var(--text);">核心情绪：</strong>定中枢自安，压得住场。</p>
+        <p><strong style="color:var(--text);">使用场景：</strong>重要商务会谈、谈判决策、见大客户、需要稳住气场的关键时刻。</p>
+        <p><strong style="color:var(--text);">高级感话术：</strong>不是取悦别人的香，是稳住自己气场的香。职场进阶到一定阶段，你需要的不是浓烈的香水，是一管能镇住全场的线香。</p>
+        <div class="featured-detail-tags">
+          <span class="featured-tag">沉稳克制</span>
+          <span class="featured-tag">商务必备</span>
+          <span class="featured-tag">镇场定局</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-detail">
+      <div class="featured-detail-visual" style="background:url('images/img_18.jpg') center/contain no-repeat; background-color:var(--bg);">
+        <div class="featured-detail-num">No.2</div>
+        <div class="featured-detail-name">檀汐泠</div>
+        <div class="featured-detail-series">玄枢 · 木质调</div>
+      </div>
+      <div class="featured-detail-info">
+        <h3>从容进阶款 · 淡定之香</h3>
+        <p>沉稳木质，温润内敛，前调清冷如汐，中调温润如檀，尾调悠长淡定，润物细无声。</p>
+        <p><strong style="color:var(--text);">核心情绪：</strong>从容淡定，不疾不徐。</p>
+        <p><strong style="color:var(--text);">使用场景：</strong>日常商务、重要会议、见客户、需要展现专业度和从容感的场合。</p>
+        <p><strong style="color:var(--text);">高级感话术：</strong>真正的高级，是不疾不徐的从容。檀汐泠不是浓烈的木质香，是润物细无声的沉稳，像一个见过世面的人，不张扬但自有分量。</p>
+        <div class="featured-detail-tags">
+          <span class="featured-tag">从容淡定</span>
+          <span class="featured-tag">温润内敛</span>
+          <span class="featured-tag">专业度</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-detail">
+      <div class="featured-detail-visual" style="background:url('images/img_17.jpg') center/contain no-repeat; background-color:var(--bg);">
+        <div class="featured-detail-num">No.4</div>
+        <div class="featured-detail-name">红樽酿</div>
+        <div class="featured-detail-series">观微 · 花香草木调</div>
+      </div>
+      <div class="featured-detail-info">
+        <h3>品味进阶款 · 文气之香</h3>
+        <p>清雅草木花香，前调清冷细腻，中调干净通透，尾调回甘悠长，没有浓郁的脂粉感，是高级的草木花香。</p>
+        <p><strong style="color:var(--text);">核心情绪：</strong>静心清绪，文思泉涌。</p>
+        <p><strong style="color:var(--text);">使用场景：</strong>读书、独处、深度思考、写作、需要静心和灵感的时刻。</p>
+        <p><strong style="color:var(--text);">高级感话术：</strong>闻过很多花香，最后回到红樽酿。不是甜腻的花香，是清雅的草木香，像翻开一本旧书，像走进一片松林，是有文化底蕴的高级味道。</p>
+        <div class="featured-detail-tags">
+          <span class="featured-tag">清雅文气</span>
+          <span class="featured-tag">静心读书</span>
+          <span class="featured-tag">文化底蕴</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-detail">
+      <div class="featured-detail-visual" style="background:url('images/img_11.jpg') center/contain no-repeat; background-color:var(--bg);">
+        <div class="featured-detail-num">No.5</div>
+        <div class="featured-detail-name">涧中棠</div>
+        <div class="featured-detail-series">观微 · 花香草木调</div>
+      </div>
+      <div class="featured-detail-info">
+        <h3>治愈进阶款 · 清冽之香</h3>
+        <p>清冽海棠香，前调清透如涧水，中调温润如海棠，尾调回甘悠长，温润不甜腻，是治愈系的高级花香。</p>
+        <p><strong style="color:var(--text);">核心情绪：</strong>治愈浮躁，内心清明。</p>
+        <p><strong style="color:var(--text);">使用场景：</strong>情绪浮躁、需要平复心情、午后独处、复盘内省、和自己对话的时刻。</p>
+        <p><strong style="color:var(--text);">高级感话术：</strong>不是热闹讨喜的香，是把乱糟糟的心绪慢慢收回来的香。涧中棠像山涧里的一株海棠，清冽、安静、自愈，是闻过就忘不掉的高级味道。</p>
+        <div class="featured-detail-tags">
+          <span class="featured-tag">清冽治愈</span>
+          <span class="featured-tag">平复心绪</span>
+          <span class="featured-tag">自愈系</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-detail" style="margin-bottom:0;">
+      <div class="featured-detail-visual" style="background:url('images/img_40.jpg') center/contain no-repeat; background-color:var(--bg);">
+        <div class="featured-detail-num">No.12</div>
+        <div class="featured-detail-name">蜜枕屿</div>
+        <div class="featured-detail-series">归息 · 茶/甜食调</div>
+      </div>
+      <div class="featured-detail-info">
+        <h3>生活进阶款 · 安眠之香</h3>
+        <p>蜂蜜甜暖，前调温润如蜜，中调甜暖如枕，尾调安心悠长，温馨治愈不齁甜，是助眠系的高级甜香。</p>
+        <p><strong style="color:var(--text);">核心情绪：</strong>助眠静养，尘劳暂放。</p>
+        <p><strong style="color:var(--text);">使用场景：</strong>睡前安神、营造温馨卧室氛围、失眠人群、需要治愈一天疲惫的时刻。</p>
+        <p><strong style="color:var(--text);">高级感话术：</strong>把白天交出去的自己，一寸一寸领回来。蜜枕屿不是齁甜的香，是温柔的、安心的、像被裹进蜂蜜里的温暖，是高级的助眠香。</p>
+        <div class="featured-detail-tags">
+          <span class="featured-tag">助眠安神</span>
+          <span class="featured-tag">温馨治愈</span>
+          <span class="featured-tag">生活仪式感</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<!-- ===== STORES PAGE ===== -->
+<div class="page" id="page-stores">
+  <div class="story-hero">
+    <p class="section-label">Our Stores</p>
+    <h1 class="section-title">10月28日，<br><em>双城同步开业</em></h1>
+    <p class="section-desc">深圳南头古城店 · 天津万象城店。从南到北，东方香气双城绽放。</p>
+  </div>
+
+  <section class="section" style="padding-top:0;">
+
+    <div class="store-card">
+      <div class="store-info">
+        <div class="store-city">SHENZHEN</div>
+        <h3>深圳南头古城店</h3>
+        <p class="store-detail"><strong>地址</strong>深圳市南山区南头古城（具体铺位待公布）</p>
+        <p class="store-detail"><strong>开业</strong>2026年10月28日</p>
+        <p class="store-detail"><strong>定位</strong>品牌首店 · 东方散香铺子</p>
+        <p class="store-detail"><strong>特色</strong>南头古城历史文化街区，设计师独立选品店，22款全香型体验，水晶香插系列，伴手礼包装</p>
+        <p class="store-detail"><strong>活动</strong>开业首周到店打卡发小红书/抖音，送6味小样套装（香插+6味小样+礼盒）</p>
+      </div>
+      <div class="store-visual" style="background:url('images/img_21.jpg') center/contain no-repeat; background-color:var(--bg);">
+        <div class="store-visual-icon">深圳</div>
+        <div class="store-visual-label">南头古城 · 品牌首店</div>
+      </div>
+    </div>
+
+    <div class="store-card">
+      <div class="store-info">
+        <div class="store-city">TIANJIN</div>
+        <h3>天津万象城店</h3>
+        <p class="store-detail"><strong>地址</strong>天津市河西区天津万象城三楼D09</p>
+        <p class="store-detail"><strong>开业</strong>2026年10月28日</p>
+        <p class="store-detail"><strong>定位</strong>天津首店 · 东方香氛体验</p>
+        <p class="store-detail"><strong>特色</strong>天津核心商圈，高端客群覆盖，全系列产品展示，专业香氛咨询服务</p>
+        <p class="store-detail"><strong>活动</strong>开业首周到店打卡发小红书/抖音，送6味小样套装（香插+6味小样+礼盒）</p>
+      </div>
+      <div class="store-visual" style="background:url('images/img_22.jpg') center/contain no-repeat; background-color:var(--bg);">
+        <div class="store-visual-icon">天津</div>
+        <div class="store-visual-label">万象城 · 高端商场店</div>
+      </div>
+    </div>
+
+    <div class="store-gallery">
+      <h3>店铺设计</h3>
+      <p class="gallery-sub">STORE DESIGN · 东方散香铺子</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img loading="lazy" decoding="async" src="images/img_13.jpg" alt="店铺正面设计">
+          <div class="gallery-label">正面 · 主入口</div>
+        </div>
+        <div class="gallery-item">
+          <img loading="lazy" decoding="async" src="images/img_24.jpg" alt="店铺侧面设计">
+          <div class="gallery-label">侧面 · 展示区</div>
+        </div>
+        <div class="gallery-item">
+          <img loading="lazy" decoding="async" src="images/img_10.jpg" alt="店铺背面设计">
+          <div class="gallery-label">背面 · 体验区</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<!-- ===== BRAND GUIDELINES PAGE ===== -->
+<div class="page" id="page-guidelines">
+  <div class="story-hero" style="background: linear-gradient(135deg, #8B6F47 0%, #6B5335 100%);">
+    <p class="section-label" style="color: rgba(255,255,255,0.9);">Brand Book</p>
+    <h1 class="section-title" style="color: #fff;">品牌手册 <em style="color: rgba(255,255,255,0.85);">Brand Guidelines</em></h1>
+    <p class="section-desc" style="color: rgba(255,255,255,0.7);">BUYANSPACE 品牌视觉与传播规范</p>
+  </div>
+
+  <!-- 品牌概述 -->
+  <section class="section" style="padding-top:0;">
+    <p class="section-label">01 · Brand Overview</p>
+    <h2 class="section-title">品牌概述</h2>
+    <p class="section-desc">关于 BUYANSPACE 的核心定义与定位</p>
+
+    <div class="philosophy-cards" style="margin-top: 48px;">
+      <div class="philosophy-card">
+        <h4>品牌定位</h4>
+        <p>不厌空间设计事务所旗下东方线香品牌。把家的气味做成可以带走的香，用设计师的审美重新定义东方香氛。</p>
+      </div>
+      <div class="philosophy-card">
+        <h4>品牌使命</h4>
+        <p>让香气回到日常。不是摆在神坛上的香，而是每天都能用、越用越喜欢的生活陪伴。</p>
+      </div>
+    </div>
+
+    <div class="philosophy-cards" style="margin-top: 24px;">
+      <div class="philosophy-card">
+        <h4>品牌愿景</h4>
+        <p>成为东方香氛领域的设计标杆，让世界看到中国香的当代表达。</p>
+      </div>
+      <div class="philosophy-card">
+        <h4>核心 slogan</h4>
+        <p>乍见之欢，不如久处不厌。<br><br>闻香的尽头，一定有 BUYANSPACE。</p>
+      </div>
+    </div>
+
+    <!-- 品牌时间线 -->
+    <h3 style="font-size:24px; margin-top:64px; margin-bottom:8px;">品牌时间线</h3>
+    <p style="color:var(--text-dim); font-size:14px;">从设计事务所到东方香氛品牌</p>
+
+    <div style="margin-top:48px; padding-left:24px; border-left:2px solid var(--line);">
+      <div style="margin-bottom:32px; position:relative;">
+        <div style="position:absolute; left:-31px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--accent);"></div>
+        <div style="font-size:14px; color:var(--accent); margin-bottom:4px;">2000年代初</div>
+        <div style="font-size:16px; margin-bottom:4px;">设计事务所成立</div>
+        <p style="font-size:14px; color:var(--text-dim);">深耕空间设计20余年，项目遍布深圳、北京、天津、洛杉矶、香港、新加坡</p>
+      </div>
+      <div style="margin-bottom:32px; position:relative;">
+        <div style="position:absolute; left:-31px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--accent);"></div>
+        <div style="font-size:14px; color:var(--accent); margin-bottom:4px;">2024-2025</div>
+        <div style="font-size:16px; margin-bottom:4px;">品牌孵化与产品研发</div>
+        <p style="font-size:14px; color:var(--text-dim);">联合三代传承制香世家，反复调配22款香型，打磨包装与空间设计</p>
+      </div>
+      <div style="margin-bottom:0; position:relative;">
+        <div style="position:absolute; left:-31px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--accent);"></div>
+        <div style="font-size:14px; color:var(--accent); margin-bottom:4px;">2026.10.28</div>
+        <div style="font-size:16px; margin-bottom:4px;">双城首店同步开业</div>
+        <p style="font-size:14px; color:var(--text-dim);">深圳南头古城店 + 天津万象城店，正式面向消费者</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 视觉识别 -->
+  <section class="section-alt">
+    <div class="section">
+      <p class="section-label">02 · Visual Identity</p>
+      <h2 class="section-title">视觉识别系统</h2>
+      <p class="section-desc">品牌色彩、字体与 LOGO 规范</p>
+
+      <!-- 色彩系统 -->
+      <h3 style="font-size:24px; margin-top:64px; margin-bottom:8px;">色彩系统</h3>
+      <p style="color:var(--text-dim); font-size:14px;">主色 + 中性色 + 强调色，共三色体系</p>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; margin-top: 48px;">
+        <div style="border-radius:8px; overflow:hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+          <div style="height:120px; background:#8B6F47;"></div>
+          <div style="padding:16px; background:var(--bg-card);">
+            <div style="font-size:14px; font-weight:500; margin-bottom:4px;">主色 · 暖棕</div>
+            <div style="font-size:12px; color:var(--text-faint); font-family:monospace;">#8B6F47</div>
+          </div>
+        </div>
+        <div style="border-radius:8px; overflow:hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+          <div style="height:120px; background:#F5F2ED;"></div>
+          <div style="padding:16px; background:var(--bg-card);">
+            <div style="font-size:14px; font-weight:500; margin-bottom:4px;">底色 · 米白</div>
+            <div style="font-size:12px; color:var(--text-faint); font-family:monospace;">#F5F2ED</div>
+          </div>
+        </div>
+        <div style="border-radius:8px; overflow:hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+          <div style="height:120px; background:#2A2826;"></div>
+          <div style="padding:16px; background:var(--bg-card);">
+            <div style="font-size:14px; font-weight:500; margin-bottom:4px;">文字 · 炭黑</div>
+            <div style="font-size:12px; color:var(--text-faint); font-family:monospace;">#2A2826</div>
+          </div>
+        </div>
+        <div style="border-radius:8px; overflow:hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+          <div style="height:120px; background:#C4A96B;"></div>
+          <div style="padding:16px; background:var(--bg-card);">
+            <div style="font-size:14px; font-weight:500; margin-bottom:4px;">强调 · 哑金</div>
+            <div style="font-size:12px; color:var(--text-faint); font-family:monospace;">#C4A96B</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOGO 规范 -->
+      <h3 style="font-size:24px; margin-top:64px; margin-bottom:8px;">LOGO 规范</h3>
+      <p style="color:var(--text-dim); font-size:14px;">标准组合、最小尺寸与禁用规则</p>
+
+      <div style="background:var(--bg-card); padding:48px; border-radius:8px; margin-top:32px; text-align:center;">
+        <img loading="lazy" decoding="async" src="images/img_12.jpg" alt="BUYANSPACE LOGO" style="max-width:300px; margin-bottom:24px;">
+        <p style="font-size:13px; color:var(--text-faint);">标准 LOGO · 白底黑字</p>
+      </div>
+
+      <div class="philosophy-cards" style="margin-top:32px;">
+        <div class="philosophy-card">
+          <h4>标准组合</h4>
+          <p>BUYANSPACE 全大写，粗体无衬线，带 ® 注册商标符号。白底黑字为标准用法。</p>
+        </div>
+        <div class="philosophy-card">
+          <h4>最小使用尺寸</h4>
+          <p>线上最小宽度 120px，线下最小宽度 20mm。小于此尺寸时可使用缩写 B.S.。</p>
+        </div>
+      </div>
+
+      <div class="philosophy-cards" style="margin-top:24px;">
+        <div class="philosophy-card">
+          <h4>安全留白</h4>
+          <p>LOGO 周围需保留至少一个字母高度的留白，不得与其他元素重叠。</p>
+        </div>
+        <div class="philosophy-card">
+          <h4>禁用规则</h4>
+          <p>禁止变形、拉伸、倾斜；禁止使用渐变色；禁止放在杂乱背景上影响识别。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 品牌声音 -->
+  <section class="section">
+    <p class="section-label">03 · Brand Voice</p>
+    <h2 class="section-title">品牌声音与语调</h2>
+    <p class="section-desc">我们怎么说话、怎么写文案、怎么和用户沟通</p>
+
+    <div class="philosophy-cards">
+      <div class="philosophy-card">
+        <h4>语调风格</h4>
+        <p>安静、克制、有文化感。不喊口号，不制造焦虑，像一个懂生活的朋友在和你聊天。</p>
+      </div>
+      <div class="philosophy-card">
+        <h4>核心关键词</h4>
+        <p>久处不厌、各归其序、东方、日常、陪伴、设计感、高级、不张扬</p>
+      </div>
+    </div>
+
+    <div class="philosophy-cards" style="margin-top:24px;">
+      <div class="philosophy-card">
+        <h4>文案风格</h4>
+        <p>短句为主，留白多。讲情绪、讲场景、讲感受，不讲参数、不讲功效。</p>
+      </div>
+      <div class="philosophy-card">
+        <h4>禁止用词</h4>
+        <p>最、第一、顶级、治愈、治疗、失眠、安神、寺庙、禅意、供奉</p>
+      </div>
+    </div>
+
+    <div class="philosophy-cards" style="margin-top:24px;">
+      <div class="philosophy-card">
+        <h4>表达原则</h4>
+        <p>只说"助眠""放松""舒服"，不说医疗功效。只说"东方香"，不说"寺庙香"。</p>
+      </div>
+      <div class="philosophy-card">
+        <h4>话术示例</h4>
+        <p>好的香，不是让你一眼惊艳然后忘掉，而是让你每天用、越用越喜欢。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 传播规范 -->
+  <section class="section-alt">
+    <div class="section">
+      <p class="section-label">04 · Communication</p>
+      <h2 class="section-title">传播与内容规范</h2>
+      <p class="section-desc">社交媒体、达人合作与摄影风格</p>
+
+      <div class="philosophy-cards">
+        <div class="philosophy-card">
+          <h4>小红书内容方向</h4>
+          <p>生活方式场景、家居好物、东方美学、伴手礼推荐。重点拍产品在生活场景里的样子，不是白底产品图。</p>
+        </div>
+        <div class="philosophy-card">
+          <h4>抖音内容方向</h4>
+          <p>制香工艺、门店vlog、开箱体验、香道知识。强调"手工""传承""设计感"三个标签。</p>
+        </div>
+      </div>
+
+      <div class="philosophy-cards" style="margin-top:24px;">
+        <div class="philosophy-card">
+          <h4>达人合作规范</h4>
+          <p>只做差异化对比，不贬低竞品。不提具体价格对比，只说"性价比更高"。不使用寺庙/宗教场景。</p>
+        </div>
+        <div class="philosophy-card">
+          <h4>摄影风格</h4>
+          <p>自然光、低饱和、暖色调。产品拍细节质感，空间拍氛围意境，不拍硬光、不拍塑料感。</p>
+        </div>
+      </div>
+
+      <div class="philosophy-cards" style="margin-top:24px;">
+        <div class="philosophy-card">
+          <h4>禁忌清单</h4>
+          <p>不贬低竞品、不虚假宣传、不宗教话术、不价格对比、不医疗功效、不明星代言。</p>
+        </div>
+        <div class="philosophy-card">
+          <h4>打卡活动话术</h4>
+          <p>到店打卡发小红书，送6味小样套装。强调"免费试香""伴手礼""小众好物"。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== CONTACT PAGE ===== -->
+<div class="page" id="page-contact">
+  <div class="story-hero">
+    <p class="section-label">Contact Us</p>
+    <h1 class="section-title">联系我们</h1>
+    <p class="section-desc">商务合作、达人对接、媒体采访，欢迎与我们联系。</p>
+  </div>
+
+  <section class="section" style="padding-top:0;">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>联系方式</h3>
+        <div class="contact-item">
+          <div class="contact-label">商务合作</div>
+          <div class="contact-value">buyanspace@buyanspace.com</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">达人对接</div>
+          <div class="contact-value">buyanspace@buyanspace.com</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">媒体采访</div>
+          <div class="contact-value">buyanspace@buyanspace.com</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">客服咨询</div>
+          <div class="contact-value">buyanspace@buyanspace.com</div>
+        </div>
+      </div>
+      <div class="contact-qr">
+        <h3>关注我们</h3>
+        <div style="display:flex; gap: 40px; justify-content: center; margin-top: 24px;">
+          <div style="text-align:center;">
+            <img loading="lazy" decoding="async" src="images/img_33.jpg" alt="小红书二维码" style="width: 160px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+            <p style="margin-top: 12px; font-size: 14px; color: var(--text-dim);">小红书</p>
+          </div>
+          <div style="text-align:center;">
+            <img loading="lazy" decoding="async" src="images/img_06.jpg" alt="淘宝二维码" style="width: 160px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+            <p style="margin-top: 12px; font-size: 14px; color: var(--text-dim);">淘宝店铺</p>
+          </div>
+          <div style="text-align:center;">
+            <div style="width: 160px; height: 160px; border: 2px dashed var(--line); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+              <p style="font-size: 13px; color: var(--text-faint);">抖音二维码<br>待补充</p>
+            </div>
+            <p style="margin-top: 12px; font-size: 14px; color: var(--text-dim);">抖音</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h3>BUYANSPACE</h3>
+      <p>设计事务所旗下东方香氛品牌。三代传承制香，六大系列二十二款香型。乍见之欢，不如久处不厌。</p>
+    </div>
+    <div class="footer-col">
+      <h4>导航</h4>
+      <ul>
+        <li><a href="#home" onclick="navigate('home')">首页</a></li>
+        <li><a href="#story" onclick="navigate('story')">品牌故事</a></li>
+        <li><a href="#products" onclick="navigate('products')">产品系列</a></li>
+        <li><a href="#featured" onclick="navigate('featured')">超级主推</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>门店</h4>
+      <ul>
+        <li><a href="#stores" onclick="navigate('stores')">深圳南头古城店</a></li>
+        <li><a href="#stores" onclick="navigate('stores')">天津万象城店</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>联系</h4>
+      <ul>
+        <li><a href="#contact" onclick="navigate('contact')">联系我们</a></li>
+        <li><a href="#contact" onclick="navigate('contact')">商务合作</a></li>
+        <li><a href="#contact" onclick="navigate('contact')">达人对接</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 BUYANSPACE. All rights reserved.</div>
+    <div class="footer-slogan">乍见之欢，不如久处不厌</div>
+  </div>
+</footer>
+
+<script>
+function navigate(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.querySelector('.nav-links a[href="#' + page + '"]').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('navLinks').classList.remove('open');
+  location.hash = page;
+}
+
+function toggleMobileNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+window.addEventListener('hashchange', function() {
+  var page = location.hash.replace('#', '') || 'home';
+  if (document.getElementById('page-' + page)) {
+    navigate(page);
+  }
+});
+
+window.addEventListener('load', function() {
+  var page = location.hash.replace('#', '') || 'home';
+  if (document.getElementById('page-' + page)) {
+    navigate(page);
+  }
+});
+</script>
+
+
+
+</body>
+</html>
