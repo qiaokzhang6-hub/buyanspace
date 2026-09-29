@@ -1276,6 +1276,9 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
       <p class="section-label">Product Series</p>
       <h2 class="section-title">六大系列，<em>二十二款</em>香型</h2>
       <p class="section-desc">从木质到花香，从果香到茶甜，从手搓花瓣到古方经典。每一款都有它独特的情绪和场景。</p>
+      <div style="text-align: center; margin: 48px 0;">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/PiHlbAoK5oWPBvxvBYdcqmPGn8c" alt="BUYANSPACE" style="max-width: 380px; width: 100%; border-radius: 2px;">
+      </div>
       <div class="products-grid">
         <div class="product-card" onclick="navigate('products')">
           <div class="product-series">01 / 木质调</div>
@@ -1318,12 +1321,12 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
   </section>
 
   <section class="brand-showcase">
-    <div class="brand-showcase-image" style="background: url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/AoAkbhnRqofjHyxQW9fcFIDhnQf') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 48px 40px; aspect-ratio: 4/5; box-sizing: border-box;">
+    <div class="brand-showcase-image" style="background: url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/C29PbrAnooN7mKxbPZOczf1enFe') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; padding: 48px 40px 32px; aspect-ratio: 4/5; box-sizing: border-box;">
       <div style="color: #fff; font-size: 20px; letter-spacing: 0.35em; font-weight: 600; font-family: 'Helvetica Neue', sans-serif; text-shadow: 0 1px 4px rgba(0,0,0,0.15);">BUYANSPACE<sup style="font-size:9px; letter-spacing:0.1em;">®</sup></div>
-      <div style="width: 82%; overflow: hidden; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 78%; overflow: hidden; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; margin-top: 32px;">
         <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/HyUTbx3XMoET3rxBauicAq29nUd" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;" alt="BUYANSPACE">
       </div>
-      <div style="height: 12px;"></div>
+      <div style="margin-top: auto; padding-top: 32px; color: #fff; font-size: 14px; letter-spacing: 0.4em; font-family: 'Noto Serif SC', serif; text-shadow: 0 1px 4px rgba(0,0,0,0.15);">香自内生，繁花自现</div>
     </div>
     <div class="brand-showcase-text">
       <p class="brand-showcase-label">BRAND STORY</p>
@@ -2424,8 +2427,11 @@ window.addEventListener('hashchange', function() {
 });
 
 window.addEventListener('load', function() {
-  var page = location.hash.replace('#', '') || 'home';
-  if (document.getElementById('page-' + page)) {
+  var page = location.hash.replace('#', '');
+  if (!page || !document.getElementById('page-' + page)) {
+    history.replaceState(null, '', window.location.pathname);
+    navigate('home');
+  } else {
     navigate(page);
   }
 });
