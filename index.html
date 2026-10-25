@@ -649,7 +649,7 @@ a { color: var(--accent); text-decoration: none; }
 }
 
 /* ===== Products Page ===== */
-.product-detail {
+.product-detail { scroll-margin-top: 96px;
   margin-bottom: 80px;
 }
 .product-detail-header {
@@ -723,6 +723,26 @@ a { color: var(--accent); text-decoration: none; }
   padding-top: 8px;
   border-top: 1px solid var(--line-soft);
 }
+
+/* ===== Scent Detail 香气详情 ===== */
+.scent-detail {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line-soft);
+}
+.scent-detail .sd-keys {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 3px;
+}
+.scent-detail .sd-text {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.9;
+  margin-bottom: 8px;
+}
+.scent-detail .sd-text:last-child { margin-bottom: 0; }
 
 /* ===== Featured Page ===== */
 .featured-detail {
@@ -1274,43 +1294,43 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
   <section class="section-alt">
     <div class="section">
       <p class="section-label">Product Series</p>
-      <h2 class="section-title">六大系列，<em>二十二款</em>香型</h2>
+      <h2 class="section-title" onclick="navigate('products')" style="cursor:pointer;">六大系列，<em>二十二款</em>香型</h2>
       <p class="section-desc">从木质到花香，从果香到茶甜，从手搓花瓣到古方经典。每一款都有它独特的情绪和场景。</p>
       <div style="text-align: center; margin: 48px 0;">
         <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/PiHlbAoK5oWPBvxvBYdcqmPGn8c" alt="BUYANSPACE" style="max-width: 380px; width: 100%; border-radius: 2px;">
       </div>
       <div class="products-grid">
-        <div class="product-card" onclick="navigate('products')">
+        <div class="product-card" onclick="goSeries('xuanshu')">
           <div class="product-series">01 / 木质调</div>
           <div class="product-name">玄枢</div>
           <div class="product-count">3款香型</div>
           <div class="product-desc">定中枢自安，压得住场。以檀、松木为骨，香气干净厚重、不张扬、不甜腻。</div>
         </div>
-        <div class="product-card" onclick="navigate('products')">
+        <div class="product-card" onclick="goSeries('guanwei')">
           <div class="product-series">02 / 花香草木调</div>
           <div class="product-name">观微</div>
           <div class="product-count">3款香型</div>
           <div class="product-desc">照观心于微，闻见自己。清雅草木花香，清冷细腻、干净通透。</div>
         </div>
-        <div class="product-card" onclick="navigate('products')">
+        <div class="product-card" onclick="goSeries('herong')">
           <div class="product-series">03 / 果香调</div>
           <div class="product-name">和融</div>
           <div class="product-count">3款香型</div>
           <div class="product-desc">福煦然生春，福绥自至。温柔治愈的清甜果香，温润雅致、甜而不腻。</div>
         </div>
-        <div class="product-card" onclick="navigate('products')">
+        <div class="product-card" onclick="goSeries('guixi')">
           <div class="product-series">04 / 茶甜食调</div>
           <div class="product-name">归息</div>
           <div class="product-count">3款香型</div>
           <div class="product-desc">安各归其根，尘劳暂放。茶汤温润搭配奶香柔和，疗愈收尾之味。</div>
         </div>
-        <div class="product-card" onclick="navigate('products')">
+        <div class="product-card" onclick="goSeries('weifang')">
           <div class="product-series">05 / 花瓣香</div>
           <div class="product-name">微芳</div>
           <div class="product-count">5款香型</div>
           <div class="product-desc">微为细微，芳为芬芳。手搓真实花瓣，茉莉微凉、玉兰微甜。</div>
         </div>
-        <div class="product-card" onclick="navigate('products')">
+        <div class="product-card" onclick="goSeries('guyun')">
           <div class="product-series">06 / 古方经典</div>
           <div class="product-name">古韵</div>
           <div class="product-count">5款香型</div>
@@ -1716,7 +1736,7 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
 
   <section class="section" style="padding-top:0;">
 
-    <div class="product-detail">
+    <div class="product-detail" id="series-xuanshu">
       <div class="product-detail-header">
         <span class="product-detail-num">01</span>
         <span class="product-detail-name">玄枢</span>
@@ -1727,25 +1747,46 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
         <div class="scent-item">
           <div class="scent-code">No.1</div>
           <div class="scent-name">青芜叙</div>
-          <div class="scent-note">檀木+松木，干净厚重，不张扬不甜腻</div>
+          <div class="scent-note">干净厚重，不张扬不甜腻</div>
           <div class="scent-mood">沉稳克制 · 商务洽谈</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">夜交藤清苦药香与淡淡兰花香，像凉风无意间吹过森林里的藤蔓，掀起一场迷人的仲夏夜之梦。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">芽庄沉香、夜交藤、莱菔子、兰花、灵芝</p>
+          <p class="sd-keys">香韵</p><p class="sd-text">前调：兰花香·绿意感｜中调：清冷草本植物清香｜后调：深沉夜交藤清苦药香</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">No.2</div>
           <div class="scent-name">檀汐泠</div>
           <div class="scent-note">沉稳木质，温润内敛，润物细无声</div>
           <div class="scent-mood">从容淡定 · 重要会议</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">如水的凉意与清甜桂圆香，像大海与生俱来的温柔浪漫，冷静疏离而又充满力量。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">海南沉香、东加檀香、桂圆、龙脑、薄荷</p>
+          <p class="sd-keys">香韵</p><p class="sd-text">前调：简单温柔清雅｜中调：清甜爽朗不腻的桂圆香｜后调：略带凉韵的蜜香与木质香</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">No.3</div>
           <div class="scent-name">檀曜宸</div>
           <div class="scent-note">厚重檀木，气场强大，镇场定局</div>
           <div class="scent-mood">镇场定局 · 见大客户</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">以古木白檀为骨，前调是阳光般热烈的檀香，中调泛起微微辛辣感与淡淡奶甜，后调归于古庙静谧安宁的木质气息。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">古木白檀</p>
+          <p class="sd-keys">香韵</p><p class="sd-text">前调：阳光热烈檀香｜中调：微微辛辣感与淡淡奶甜｜后调：古庙静谧安宁的木质香</p>
+          
+          </div>
         </div>
+        
       </div>
     </div>
 
-    <div class="product-detail">
+    <div class="product-detail" id="series-guanwei">
       <div class="product-detail-header">
         <span class="product-detail-num">02</span>
         <span class="product-detail-name">观微</span>
@@ -1758,23 +1799,43 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
           <div class="scent-name">红樽酿</div>
           <div class="scent-note">清雅草木花香，清冷细腻，干净通透</div>
           <div class="scent-mood">静心清绪 · 读书思考</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">所用墨红玫瑰又名朱墨双辉，源自法国，现广泛种植于云南高山。当地昼夜温差悬殊、雨水充沛、光照充足，孕育出的花朵色泽浓艳、香气饱满。采摘完全盛放的花朵，去除花蕊等杂质，经低温烘干或阴干后粉碎至适宜粒度，最大程度留存花瓣中的原生香气物质。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">墨红玫瑰、玫瑰花酿、沉香、薄荷、红酒、乳香、印尼楠木</p>
+          <p class="sd-keys">香韵</p><p class="sd-text">前调：墨红玫瑰的浓郁花香｜中调：丝滑棉甜的红酒香韵｜后调：薄荷清凉与醇厚木香</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">No.5</div>
           <div class="scent-name">涧中棠</div>
           <div class="scent-note">清冽海棠香，温润不甜腻，治愈浮躁</div>
           <div class="scent-mood">治愈浮躁 · 午后独处</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">山中茶花与如水的清冽感，干净清爽的开篇引你上头，骨子里却是像水一般的清冷感。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">越南水沉、山茶花</p>
+          <p class="sd-keys">香韵</p><p class="sd-text">前调：如水一般清爽｜中调：茶树花的微涩清冽感｜后调：沉香的淡雅花香与飘逸</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">No.6</div>
           <div class="scent-name">云岑松隐</div>
           <div class="scent-note">雪松清冷，山林气息，思维澄澈</div>
           <div class="scent-mood">思维澄澈 · 深度写作</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">精纯的木质芳香，空灵高远。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">雪檀木、雪松</p>
+          
+          </div>
         </div>
+        
       </div>
     </div>
 
-    <div class="product-detail">
+    <div class="product-detail" id="series-herong">
       <div class="product-detail-header">
         <span class="product-detail-num">03</span>
         <span class="product-detail-name">和融</span>
@@ -1787,23 +1848,42 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
           <div class="scent-name">荔露棠</div>
           <div class="scent-note">荔枝清甜，水润多汁，轻松愉悦</div>
           <div class="scent-mood">轻松愉悦 · 朋友小聚</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">生闻时有清馥的荔枝壳香气，点燃后有玫瑰香与药香，木质香中透着黄酒的甘甜。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">妃子笑荔枝壳、沉香、檀香、黄酒、玫瑰、甘松、炼蜜</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">No.8</div>
           <div class="scent-name">桃汐烬</div>
           <div class="scent-note">桃子微醺，甜而不腻，浪漫温柔</div>
           <div class="scent-mood">浪漫温柔 · 约会时刻</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">生闻时像是蜜桃的甜与似话梅般的酸咸，点燃后蜜桃的甜味逐渐减弱，木质香调为主旋律，伴随着溜溜的咸甜韵。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">特调蜜桃提取液、桃花蜜、海南沉香、印度老山檀香</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">No.9</div>
           <div class="scent-name">柚禄安</div>
           <div class="scent-note">柚子清冽，干净通透，纳吉祈福</div>
           <div class="scent-mood">纳吉祈福 · 日常居家</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">清鲜柑橘草木香，纳吉祈福之气。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">沉香、檀香、碌柚叶、楠木粘粉</p>
+          <p class="sd-keys">香韵</p><p class="sd-text">前调：碌柚叶（清鲜柑橘草木香）｜中调：檀香温润甜香｜后调：沉香沉厚药香，尾韵绵长</p>
+          
+          </div>
         </div>
+        
       </div>
     </div>
 
-    <div class="product-detail">
+    <div class="product-detail" id="series-guixi">
       <div class="product-detail-header">
         <span class="product-detail-num">04</span>
         <span class="product-detail-name">归息</span>
@@ -1816,23 +1896,42 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
           <div class="scent-name">普洱涧</div>
           <div class="scent-note">普洱茶香，温润醇厚，回甘悠长</div>
           <div class="scent-mood">卸疲安神 · 茶席品茗</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">全网首创普洱茶香，醇厚的普洱香气夹着沉香檀香味，打开你全新的世界大门。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">海南沉香、老山檀香、普洱茶汤（发酵炮制）</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">No.11</div>
           <div class="scent-name">咖瑰叙</div>
           <div class="scent-note">咖啡+玫瑰，醇厚中带花香，放松慢生活</div>
           <div class="scent-mood">放松慢生活 · 下班回家</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">此香为原创的自研香方，酸甜苦平衡，香韵醇厚饱满。生闻有巧克力香、玫瑰花香，点燃后花香与焦糖调，果香和花香交织。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">玫瑰、咖啡豆磨粉、老山檀香、芽庄沉香、乳香、炼蜜</p>
+          <p class="sd-keys">香韵</p><p class="sd-text">前调：花香与焦糖调｜中调：带着檀木香与奶香｜后调：花香与果香的温柔香气</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">No.12</div>
           <div class="scent-name">蜜枕屿</div>
           <div class="scent-note">蜂蜜甜暖，温馨治愈，助眠静养</div>
           <div class="scent-mood">助眠静养 · 睡前安神</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">原料带着些许椰香、奶香、兰花香，以蜜枣酒炮制后，燃烧时椰奶香表现得更加明显。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">海南小叶降真香（蜜枣酒炮制）</p>
+          
+          </div>
         </div>
+        
       </div>
     </div>
 
-    <div class="product-detail">
+    <div class="product-detail" id="series-weifang">
       <div class="product-detail-header">
         <span class="product-detail-num">05</span>
         <span class="product-detail-name">微芳</span>
@@ -1845,35 +1944,60 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
           <div class="scent-name">茉莉</div>
           <div class="scent-note">清透甜润，不浓不腻，夏夜花田清透气场</div>
           <div class="scent-mood">解郁宽胸 · 醒神松气</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">清雅甜润的白花香。初闻带着夜晚的凉意，清新通透；中段甜润饱满，像走进一片夏夜的茉莉花田；尾调留一丝绿意，干净不腻。手搓工艺让茉莉花瓣的天然精油缓慢释放，比精油香多了一层鲜活感。</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">P2</div>
           <div class="scent-name">玉兰</div>
           <div class="scent-note">清冽高雅，不甜不腻，晨露初开净场气场</div>
           <div class="scent-mood">宁心净场 · 安神缓虑</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">清幽雅致，比茉莉清冽，比桂花内敛。带着一丝柑橘调的清新，整体气质是高洁而非甜美。手搓的白玉兰花瓣让香气有一层粉感，温润如玉，不张扬但一直在。</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">P3</div>
           <div class="scent-name">玫瑰</div>
           <div class="scent-note">浓郁馥郁，甜而不腻，温柔包裹女人气场</div>
           <div class="scent-mood">疏肝悦己 · 活血调绪</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">浓郁馥郁，甜而不腻。手搓的玫瑰花瓣保留了花蜜的质感，比蒸馏玫瑰精油多了一层生的鲜活感——不是玫瑰精油的标准化甜，是真花瓣在指尖揉碎的那种味道。尾调有淡淡的木质底蕴，压住了甜度，不会腻。</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">P4</div>
           <div class="scent-name">薰衣草</div>
           <div class="scent-note">草本清冽，不浓不烈，普罗旺斯花田松弛</div>
           <div class="scent-mood">缓压放松 · 疏解情绪</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">草本花香，清冽中带甜。不是纯花香，是花与草的复合——花的甜在前，草的药在后。手搓工艺让薰衣草的花穗颗粒清晰可见，香气比精油温和得多，不刺鼻，不会上头。</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">P5</div>
           <div class="scent-name">绿茶</div>
           <div class="scent-note">清苦回甘，不甜不腻，明前龙井清透气场</div>
           <div class="scent-mood">醒神破困 · 疏肝净场</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">清新的茶香，带着青草的绿意和微苦的回甘。不是奶茶那种甜茶味，是刚泡开一杯明前龙井的真茶香。手搓的绿茶叶碎让香气有层次——先是青绿鲜活，然后是轻焙火香，最后是甘甜收尾。</p>
+          
+          </div>
         </div>
+        
       </div>
     </div>
 
-    <div class="product-detail" style="margin-bottom:0;">
+    <div class="product-detail" id="series-guyun" style="margin-bottom:0;">
       <div class="product-detail-header">
         <span class="product-detail-num">06</span>
         <span class="product-detail-name">古韵</span>
@@ -1886,31 +2010,66 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
           <div class="scent-name">龙涎香</div>
           <div class="scent-note">龙涎香粉+茂名沉木+崖柏，海风咸润，琥珀温甜</div>
           <div class="scent-mood">沉心镇场 · 贵气自华</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">抹香鲸经年沉淀于深海，随洋流漂岸方得一缕，可遇不可求，古有一两龙涎一两金之说。海域的咸润气息徐徐展开，琥珀的温润甜意随后拢聚，烟气绵密如绸，久久聚拢不散。点燃的瞬间，似推开古老殿宇的朱门，一股沉稳而尊贵的气息扑面而来——压得住任何场面的那缕香。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">龙涎香粉、茂名沉木粉、崖柏粉、小叶粘粉</p>
+          <p class="sd-keys">香韵</p><p class="sd-text">前调：海风咸润，一缕清冽的远洋气息｜中调：琥珀温甜，烟气绵密聚拢如绸｜后调：沉稳尊贵，余韵压场久久不散</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">S2</div>
           <div class="scent-name">二苏旧局</div>
           <div class="scent-note">墨韵+沉木+回甘，纸墨书香，清苦回甘</div>
           <div class="scent-mood">墨香提笔 · 文思自涌</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">推开旧居木门，一缕墨韵先至。致敬北宋苏轼、苏辙兄弟——一座旧居，两代文章，焚香点茶挂画插花，宋人四雅皆通。木质的沉稳如旧书页层层叠落，尾调泛起一丝文人式的清苦回甘，像读罢长卷后喉间那点涩香。不浓不烈，恰是案头应有的气息——点燃它，字都会写得从容些。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">乌沉香粉、人参、茂名沉木粉、崖柏粉、小叶粘粉</p>
+          <p class="sd-keys">香韵</p><p class="sd-text">前调：纸墨书香，旧居木门初启｜中调：沉木安稳，如书页层层叠落｜后调：清苦回甘，文人喉间那点涩</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">S3</div>
           <div class="scent-name">鹅梨帐中香</div>
           <div class="scent-note">梨汁清甜+沉檀温柔，梨韵清甜，暖余温长</div>
           <div class="scent-mood">梨香帐暖 · 温柔入梦</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">南唐后主李煜亲创古方，以鹅梨汁反复蒸润沉檀，载于《香乘》，是皇帝调给爱人的睡前香。梨汁的清甜浸润沉檀，甜而不腻，温柔妥帖——是梨子将熟未熟的清甜，是被子晒过太阳的暖意，是南唐旧梦里那一帐千年不褪的温度。睡前点燃，让香气先你一步，暖好整个被窝。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">鹅梨香粉、茂名沉木粉、崖柏粉、小叶粘粉</p>
+          <p class="sd-keys">香韵</p><p class="sd-text">前调：梨汁清甜，将熟未熟的果韵｜中调：沉檀温柔，妥帖如贴身织棉｜后调：被暖余温，千年不褪的安眠</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">S4</div>
           <div class="scent-name">老山檀香</div>
           <div class="scent-note">印度迈索尔老山檀，奶感醇厚，木质绵长</div>
           <div class="scent-mood">檀韵凝香 · 心凝自定</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">老山专指印度迈索尔产区——檀香的黄金产区，全球公认的老山标杆。奶感醇厚，木质绵长，温暖如推开寺门后的第一缕安宁。它稳定、宽厚、不争，是闭眼都不会认错的那一支檀。从佛堂供香到茶席品鉴，从冥想静坐到香水后调——老山檀是一切檀的基准线，任何空间任何时刻点燃，都不违和。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">印度老山檀粉、茂名沉木粉、崖柏粉、小叶粘粉</p>
+          <p class="sd-keys">香韵</p><p class="sd-text">前调：奶感醇厚，推开门的安宁｜中调：木质绵长，宽厚稳定不争｜后调：温暖安定，基准线的踏实</p>
+          
+          </div>
         </div>
+        
         <div class="scent-item">
           <div class="scent-code">S5</div>
           <div class="scent-name">雪中春信</div>
           <div class="scent-note">雪冽清甜+梅花暗香，雪冽清透，梅香暗涌</div>
           <div class="scent-mood">梅香雪落 · 静心自清</div>
+          <div class="scent-detail">
+          <p class="sd-keys">香气说明</p><p class="sd-text">宋人香事的意境巅峰——传世名香雪中春信，捕捉的是雪落梅梢那一刻的气息：雪的清冽裹着梅的暗香，冬天里藏着一封春天的信。梅香不喧，雪意不寒，尾调凉意回甘，像雪后推开窗的第一口空气。五款中画面感最足、留白最满的一支——点燃它，便是整个冬日最静的那场雪。</p>
+          <p class="sd-keys">配料</p><p class="sd-text">艾草粉、薰衣草粉、绿茶粉、茂名沉木粉、崖柏粉、小叶粘粉</p>
+          <p class="sd-keys">香韵</p><p class="sd-text">前调：雪冽清甜，雪落梅梢一刻｜中调：梅香暗涌，冬天里的春信｜后调：凉意回甘，雪后推窗第一口空气</p>
+          
+          </div>
         </div>
+        
       </div>
     </div>
 
@@ -2405,6 +2564,13 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
 </footer>
 
 <script>
+function goSeries(key) {
+  navigate('products');
+  setTimeout(function(){
+    var el = document.getElementById('series-' + key);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 120);
+}
 function navigate(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
