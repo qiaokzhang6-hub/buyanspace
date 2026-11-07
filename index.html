@@ -978,6 +978,17 @@ a { color: var(--accent); text-decoration: none; }
   display: inline-block;
   width: 80px;
 }
+/* 门店卡内轮播：收进卡片，覆盖首页满宽样式 */
+.store-carousel { position: relative; }
+.store-carousel .sc-viewport {
+  width: 100%;
+  margin-left: 0;
+  border: 1px solid var(--line);
+  aspect-ratio: 4 / 3;
+}
+.store-carousel .sc-slide { aspect-ratio: 4 / 3; }
+.store-carousel .sc-slide img { object-position: 50% 55%; }
+
 .store-visual {
   aspect-ratio: 4/3;
   border: 1px solid var(--line);
@@ -1188,6 +1199,108 @@ a { color: var(--accent); text-decoration: none; }
   letter-spacing: 0.2em;
   margin-bottom: 32px;
 }
+.og-scheme { margin-top: 56px; }
+.og-scheme:first-of-type { margin-top: 0; }
+.og-scheme h4 {
+  font-size: 19px;
+  color: var(--text);
+  letter-spacing: .08em;
+  margin-bottom: 6px;
+}
+.og-scheme > p {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+.og-carousel { position: relative; }
+.og-viewport {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border: 1px solid var(--line);
+  background: var(--bg);
+}
+.og-viewport::-webkit-scrollbar { display: none; }
+.og-item {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  position: relative;
+  aspect-ratio: 16 / 10;
+}
+.og-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: var(--bg);
+}
+.og-item .gallery-label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 12px;
+  background: rgba(245,242,237,.86);
+  font-size: 12px;
+  color: var(--text);
+  letter-spacing: .15em;
+}
+.og-arrow {
+  position: absolute;
+  top: calc(50% - 20px);
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(245,242,237,.9);
+  color: var(--text);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  z-index: 3;
+  transition: background .3s;
+}
+.og-arrow:hover { background: #fff; }
+.og-prev { left: 14px; }
+.og-next { right: 14px; }
+.og-dots {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-top: 10px;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  z-index: 3;
+}
+.og-dot {
+  width: 22px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.og-dot::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(42,40,38,.3);
+  transition: background .3s, width .3s, height .3s;
+}
+.og-dot.active::after { background: var(--accent); width: 7px; height: 7px; }
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1333,6 +1446,14 @@ a { color: var(--accent); text-decoration: none; }
   .store-card { grid-template-columns: 1fr; padding: 32px; }
   .scent-list { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr; }
+  .og-arrow { width: 36px; height: 36px; font-size: 17px; }
+  .og-prev { left: 8px; }
+  .og-next { right: 8px; }
+  .og-item .gallery-label { top: 10px; left: 10px; padding: 5px 10px; font-size: 11px; }
+  .og-item { aspect-ratio: 4 / 3; }
+  .og-scheme { margin-top: 40px; }
+  .og-scheme h4 { font-size: 17px; }
+  .og-dot { width: 15px; height: 28px; }
   .product-closeup { grid-template-columns: 1fr; }
   .product-closeup-text { padding: 32px 24px; }
   .brand-showcase { grid-template-columns: 1fr; }
@@ -2363,51 +2484,175 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
 
     <div class="store-card">
       <div class="store-info">
-        <div class="store-city">SHENZHEN</div>
-        <h3>深圳南头古城店</h3>
-        <p class="store-detail"><strong>地址</strong>深圳市南山区南头古城（具体铺位待公布）</p>
-        <p class="store-detail"><strong>开业</strong>2026年10月28日</p>
-        <p class="store-detail"><strong>定位</strong>品牌首店 · 东方散香铺子</p>
-        <p class="store-detail"><strong>特色</strong>南头古城历史文化街区，设计师独立选品店，22款全香型体验，水晶香插系列，伴手礼包装</p>
-        <p class="store-detail"><strong>活动</strong>开业首周到店打卡发小红书/抖音，送6味小样套装（香插+6味小样+礼盒）</p>
+        <div class="store-city">TIANJIN · NORTH</div>
+        <h3>天津万象城店</h3>
+        <p class="store-detail"><strong>地址</strong>天津市河西区天津万象城三楼D09</p>
+        <p class="store-detail"><strong>定位</strong>华北首店 · 高端商场中岛</p>
+        <p class="store-detail"><strong>特色</strong>天津核心商圈，22款全香型陈列，专业香氛咨询，可现场点香试味</p>
       </div>
-      <div class="store-visual" style="background:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/M9edbuKfRo4ZOqxag1rcnnZxnCd') center/contain no-repeat; background-color:var(--bg);">
-        <div class="store-visual-icon">深圳</div>
-        <div class="store-visual-label">南头古城 · 品牌首店</div>
+      <div class="store-carousel">
+        <div class="sc-viewport">
+          <div class="sc-track" id="tjTrack">
+              <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Ilb0b2dxKo0bZwxSMsCciTHvn1b" alt="天津万象城店 · 陈列全景" loading="lazy"></div>
+              <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/LBVrb5CM6oNAdcxdFcccOJSanVg" alt="天津万象城店 · 中岛全景" loading="lazy"></div>
+              <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/SP3EbPY99o0bSLx3eLpcJHbSnmh" alt="天津万象城店 · 香品陈列台" loading="lazy"></div>
+              <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/MDCpbRxrNoTwuCxN6qBc7YSDntF" alt="天津万象城店 · 香罐矩阵" loading="lazy"></div>
+              <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/MXWcb56PjovtjKxdB42c1grEnhg" alt="天津万象城店 · 俯视陈列" loading="lazy"></div>
+              <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/YW96brc1xocpCoxINVlclONxn8e" alt="天津万象城店 · 香品与价签" loading="lazy"></div>
+          </div>
+          <div class="sc-dots" id="tjDots">
+                <button class="sc-dot active" aria-label="第 1 张"></button>
+                <button class="sc-dot" aria-label="第 2 张"></button>
+                <button class="sc-dot" aria-label="第 3 张"></button>
+                <button class="sc-dot" aria-label="第 4 张"></button>
+                <button class="sc-dot" aria-label="第 5 张"></button>
+                <button class="sc-dot" aria-label="第 6 张"></button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="store-card">
       <div class="store-info">
-        <div class="store-city">TIANJIN</div>
-        <h3>天津万象城店</h3>
-        <p class="store-detail"><strong>地址</strong>天津市河西区天津万象城三楼D09</p>
-        <p class="store-detail"><strong>开业</strong>2026年10月28日</p>
-        <p class="store-detail"><strong>定位</strong>天津首店 · 东方香氛体验</p>
-        <p class="store-detail"><strong>特色</strong>天津核心商圈，高端客群覆盖，全系列产品展示，专业香氛咨询服务</p>
-        <p class="store-detail"><strong>活动</strong>开业首周到店打卡发小红书/抖音，送6味小样套装（香插+6味小样+礼盒）</p>
+        <div class="store-city">SHENZHEN · SOUTH</div>
+        <h3>深圳南头古城店</h3>
+        <p class="store-detail"><strong>地址</strong>深圳市南山区南头古城（具体铺位待公布）</p>
+        <p class="store-detail"><strong>定位</strong>华南首店 · 东方散香铺子</p>
+        <p class="store-detail"><strong>特色</strong>南头古城历史文化街区，设计师独立选品，水晶香插系列，伴手礼包装</p>
       </div>
-      <div class="store-visual" style="background:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/MZwmbBTl9oKsBEx0dfUccRjTnFf') center/contain no-repeat; background-color:var(--bg);">
-        <div class="store-visual-icon">天津</div>
-        <div class="store-visual-label">万象城 · 高端商场店</div>
+      <div class="store-visual" style="background:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/M9edbuKfRo4ZOqxag1rcnnZxnCd') center/contain no-repeat; background-color:var(--bg);">
+        <div class="store-visual-icon">深圳</div>
+        <div class="store-visual-label">南头古城 · 华南首店</div>
       </div>
     </div>
 
+
     <div class="store-gallery">
-      <h3>店铺设计</h3>
-      <p class="gallery-sub">STORE DESIGN · 东方散香铺子</p>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/GuHtbkg24oa1yoxTYKwcrxI9nTd" alt="店铺正面设计">
-          <div class="gallery-label">正面 · 主入口</div>
+      <h3>店铺形象空间</h3>
+      <p class="gallery-sub">STORE IMAGE SPACE · 东方散香铺子</p>
+      <div class="og-scheme">
+        <h4>方案一 · 东方亭阁</h4>
+        <p>木结构顶棚配纱幔顶，适合商场中庭大点位，氛围感最强。</p>
+        <div class="og-carousel">
+          <div class="og-viewport">
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/BRmWbGz0ko7P9fxsTIRcf9Ainlh" alt="主效果图" loading="lazy">
+            <div class="gallery-label">主效果图</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/IppDb11yjolEDwxlgmAcOuMlnL5" alt="正面" loading="lazy">
+            <div class="gallery-label">正面</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/UsLxb3CICoa8kXxYXvxcjLk0nBc" alt="入口" loading="lazy">
+            <div class="gallery-label">入口</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/HuP4bh8EEoKHvpxBpmFcNf3tniv" alt="侧面" loading="lazy">
+            <div class="gallery-label">侧面</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/EylibY1yRovaM7xIS3fcLWetnfe" alt="全景" loading="lazy">
+            <div class="gallery-label">全景</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/D9okbmTbhoIRMIxNja8cm953n8c" alt="斜角" loading="lazy">
+            <div class="gallery-label">斜角</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Kjf9b4fDDofj6qxv2kZcARTlnff" alt="后视" loading="lazy">
+            <div class="gallery-label">后视</div>
+          </div>
+          </div>
+          <button class="og-arrow og-prev" aria-label="上一张">‹</button>
+          <button class="og-arrow og-next" aria-label="下一张">›</button>
+          <div class="og-dots"></div>
         </div>
-        <div class="gallery-item">
-          <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/OcltbzHUzoWi3sxinVJcY5UFni1" alt="店铺侧面设计">
-          <div class="gallery-label">侧面 · 展示区</div>
+      </div>
+      <div class="og-scheme">
+        <h4>方案二 · 多经点位</h4>
+        <p>开放式柜台阵列，紧凑灵活，适配各种商场点位与面积。</p>
+        <div class="og-carousel">
+          <div class="og-viewport">
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/N4yVbyGTOohsAcx1OYAczarynIg" alt="主效果图" loading="lazy">
+            <div class="gallery-label">主效果图</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/G0Vyb7VoPon42ExifQgc3x6KnYb" alt="正面" loading="lazy">
+            <div class="gallery-label">正面</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/OIRHbuGuYo4j3zx0dm0cbPuPnQc" alt="斜角" loading="lazy">
+            <div class="gallery-label">斜角</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/HHd1bLWCroDGSfxNxr5c4UP1nhg" alt="侧面" loading="lazy">
+            <div class="gallery-label">侧面</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/YS09bLxqyouqC4xrrEcctIHcnKp" alt="展示区" loading="lazy">
+            <div class="gallery-label">展示区</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/VlhtbfIMLoiE4lxy1dPcXKQznkh" alt="品牌墙" loading="lazy">
+            <div class="gallery-label">品牌墙</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/YLYobKvhuoQsUIxtqYocI3uBngc" alt="正面全景" loading="lazy">
+            <div class="gallery-label">正面全景</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/LkkubgoUXovIQExPiO1c64D6nOd" alt="俯视" loading="lazy">
+            <div class="gallery-label">俯视</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/T6H8bJ2SXoDsjIxLDZ6cc381nyf" alt="斜角全景" loading="lazy">
+            <div class="gallery-label">斜角全景</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/L9EBb2lWVo1MfNxHcuqcxmJHnnh" alt="侧面全景" loading="lazy">
+            <div class="gallery-label">侧面全景</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/QmRbbAgrTouIZKxoY77czoQrn0f" alt="中岛正面" loading="lazy">
+            <div class="gallery-label">中岛正面</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/D324bq7W9o5Pz3xy12tcLtX2nGe" alt="中岛斜角" loading="lazy">
+            <div class="gallery-label">中岛斜角</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/WRVFba0JeoyhfOxv3c8cQZLfnYd" alt="中岛侧面" loading="lazy">
+            <div class="gallery-label">中岛侧面</div>
+          </div>
+          </div>
+          <button class="og-arrow og-prev" aria-label="上一张">‹</button>
+          <button class="og-arrow og-next" aria-label="下一张">›</button>
+          <div class="og-dots"></div>
         </div>
-        <div class="gallery-item">
-          <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/GHBEbBMD1onk05xt8QgcNsVUnOf" alt="店铺背面设计">
-          <div class="gallery-label">背面 · 体验区</div>
+      </div>
+      <div class="og-scheme">
+        <h4>方案三 · 单店标准款</h4>
+        <p>落地门店的正面、侧面与背面，白底正视图，看清结构、材质与柜台排布。</p>
+        <div class="og-carousel">
+          <div class="og-viewport">
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/CcdXbVYPvobxTaxv8YUctdFJnHg" alt="正面 · 主入口" loading="lazy">
+            <div class="gallery-label">正面 · 主入口</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/CV8Qb6bO9oYnU0xAdnWcjIr0nFf" alt="侧面 · 展示区" loading="lazy">
+            <div class="gallery-label">侧面 · 展示区</div>
+          </div>
+          <div class="og-item">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/C0VUbChn7oW4o0xafcscw3n7neh" alt="背面 · 体验区" loading="lazy">
+            <div class="gallery-label">背面 · 体验区</div>
+          </div>
+          </div>
+          <button class="og-arrow og-prev" aria-label="上一张">‹</button>
+          <button class="og-arrow og-next" aria-label="下一张">›</button>
+          <div class="og-dots"></div>
         </div>
       </div>
     </div>
@@ -2799,6 +3044,85 @@ var observer = new MutationObserver(function() {
 });
 observer.observe(document.body, { childList: true, subtree: true });
 setInterval(hideWatermark, 1000);
+</script>
+
+<script>
+// 闻香空间页 · 店铺形象空间（多套方案，各自独立轮播）
+(function () {
+  try {
+    var cars = document.querySelectorAll('.og-carousel');
+    for (var c = 0; c < cars.length; c++) {
+      (function (car) {
+        var vp = car.querySelector('.og-viewport');
+        var items = car.querySelectorAll('.og-item');
+        var dotsWrap = car.querySelector('.og-dots');
+        if (!vp || items.length === 0) return;
+        var dots = [];
+        for (var i = 0; i < items.length; i++) {
+          var d = document.createElement('button');
+          d.className = 'og-dot' + (i === 0 ? ' active' : '');
+          d.setAttribute('aria-label', '第 ' + (i + 1) + ' 张');
+          (function (n) {
+            d.addEventListener('click', function () { vp.scrollTo({ left: n * vp.clientWidth, behavior: 'smooth' }); });
+          })(i);
+          dotsWrap.appendChild(d);
+          dots.push(d);
+        }
+        function upd() {
+          var i = Math.round(vp.scrollLeft / vp.clientWidth);
+          for (var k = 0; k < dots.length; k++) dots[k].classList.toggle('active', k === i);
+        }
+        vp.addEventListener('scroll', function () { window.requestAnimationFrame(upd); }, { passive: true });
+        var prev = car.querySelector('.og-prev');
+        var next = car.querySelector('.og-next');
+        if (prev) prev.addEventListener('click', function () { vp.scrollBy({ left: -vp.clientWidth, behavior: 'smooth' }); });
+        if (next) next.addEventListener('click', function () { vp.scrollBy({ left: vp.clientWidth, behavior: 'smooth' }); });
+        vp.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowLeft') vp.scrollBy({ left: -vp.clientWidth, behavior: 'smooth' });
+          if (e.key === 'ArrowRight') vp.scrollBy({ left: vp.clientWidth, behavior: 'smooth' });
+        });
+        if (items.length < 2) { if (prev) prev.style.display = 'none'; if (next) next.style.display = 'none'; }
+        upd();
+      })(cars[c]);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<script>
+// 闻香空间页 · 门店轮播
+(function () {
+  try {
+    function init(trackId, dotsId) {
+      var track = document.getElementById(trackId);
+      var dotsWrap = document.getElementById(dotsId);
+      if (!track || !dotsWrap) return;
+      var slides = track.querySelectorAll('.sc-slide');
+      var dots = dotsWrap.querySelectorAll('.sc-dot');
+      if (slides.length < 2) return;
+      var i = 0, t = null;
+      function w() { return slides[0].getBoundingClientRect().width; }
+      function go(n) {
+        i = (n % slides.length + slides.length) % slides.length;
+        track.style.transform = 'translateX(' + (-i * w()) + 'px)';
+        for (var k = 0; k < dots.length; k++) dots[k].classList.toggle('active', k === i);
+      }
+      function stop() { if (t) { clearInterval(t); t = null; } }
+      function start() { stop(); t = setInterval(function () { go(i + 1); }, 4500); }
+      for (var k = 0; k < dots.length; k++) {
+        (function (n) { dots[n].addEventListener('click', function () { go(n); start(); }); })(k);
+      }
+      var box = track.closest('.store-carousel');
+      if (box) {
+        box.addEventListener('mouseenter', stop);
+        box.addEventListener('mouseleave', start);
+      }
+      window.addEventListener('resize', function () { go(i); });
+      start();
+    }
+    init('tjTrack', 'tjDots');
+  } catch (e) {}
+})();
 </script>
 
 <script>
