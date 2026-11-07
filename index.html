@@ -82,6 +82,7 @@ a { color: var(--accent); text-decoration: none; }
   .nav.on-image .nav-links a { color: rgba(255,255,255,0.86); }
   .nav.on-image .nav-links a:hover,
   .nav.on-image .nav-links a.active { color: #fff; background: rgba(255,255,255,0.16); }
+  .nav.on-image .nav-cn { color: rgba(255,255,255,0.88); }
 }
 
 .nav-logo {
@@ -95,6 +96,17 @@ a { color: var(--accent); text-decoration: none; }
 }
 .nav-logo:hover { color: var(--accent); }
 .nav-logo span { color: var(--accent); }
+
+.nav-cn {
+  display: inline-block;
+  margin-left: 13px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #5A544D;
+  vertical-align: 1px;
+}
 
 .nav-links {
   display: flex;
@@ -1258,6 +1270,7 @@ a { color: var(--accent); text-decoration: none; }
   .sc-slide { aspect-ratio: 4 / 3; }
   .sc-slide img { object-fit: contain; object-position: 50% 50%; }
   .nav { padding: 0 24px; }
+  .nav-cn { font-size: 12px; margin-left: 8px; letter-spacing: 0.12em; }
   .nav-links { display: none; }
   .nav-mobile-btn { display: block; }
   .nav-links.open {
@@ -1310,7 +1323,7 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
 
 <!-- ===== Navigation ===== -->
 <nav class="nav">
-  <div class="nav-logo" onclick="navigate('home')">BUYAN<span>SPACE</span></div>
+  <div class="nav-logo" onclick="navigate('home')">BUYAN<span>SPACE</span><em class="nav-cn">香铺</em></div>
   <ul class="nav-links" id="navLinks">
     <li><a href="#home" onclick="navigate('home')" class="active">首页</a></li>
     <li><a href="#story" onclick="navigate('story')">品牌故事</a></li>
