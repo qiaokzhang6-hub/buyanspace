@@ -155,7 +155,7 @@ a { color: var(--accent); text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 30%;
 }
 
 .hero-portrait .hero-mb {
@@ -229,6 +229,22 @@ a { color: var(--accent); text-decoration: none; }
   display: flex;
   gap: 16px;
   justify-content: center;
+}
+.hero-cta .btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 30px;
+}
+.btn-en {
+  font-style: normal;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.24em;
+  text-indent: 0.24em;
+  opacity: 0.72;
 }
 
 .btn {
@@ -757,6 +773,29 @@ a { color: var(--accent); text-decoration: none; }
   color: var(--text-faint);
   letter-spacing: 0.1em;
 }
+/* 系列配图：底部渐变压图，衔接正文 */
+.series-visual {
+  position: relative;
+  max-width: 440px;
+  margin: 34px 0 8px;
+  overflow: hidden;
+  aspect-ratio: 720 / 1280;
+  background: #EDE8E0;
+}
+.series-visual img { display: block; width: 100%; }
+.series-visual::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 25%;
+  background: linear-gradient(to bottom,
+    rgba(245,242,237,0) 0%,
+    rgba(245,242,237,0.30) 34%,
+    rgba(245,242,237,0.84) 72%,
+    rgba(245,242,237,1) 100%);
+  pointer-events: none;
+}
+
 .product-detail-desc {
   font-size: 15px;
   color: var(--text-dim);
@@ -1283,6 +1322,7 @@ a { color: var(--accent); text-decoration: none; }
     border-bottom: 1px solid var(--line);
   }
   .section { padding: 60px 24px; }
+  .series-visual { max-width: 100%; margin-top: 26px; }
   .highlights { grid-template-columns: 1fr; }
   .products-grid { grid-template-columns: 1fr; }
   .featured-grid { grid-template-columns: 1fr; }
@@ -1300,8 +1340,12 @@ a { color: var(--accent); text-decoration: none; }
   .brand-showcase-title { font-size: 24px; }
   .footer-content { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .hero-cta { flex-direction: row; width: 100%; max-width: 320px; gap: 10px; }
-  .hero-cta .btn { flex: 1; padding: 13px 0; }
+  .hero-cta { flex-direction: row; width: 100%; max-width: 350px; gap: 8px; }
+  .hero-cta .btn { flex: 1; padding: 11px 0 10px; font-size: 12px; letter-spacing: 0.08em; }
+  .btn-en { font-size: 8px; letter-spacing: 0.2em; text-indent: 0.2em; }
+  .hero-portrait {
+    background: url(https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/UCuAbChFFoKrblxxQzAcBw1cnyc) center 28% / cover no-repeat;
+  }
   .hero-portrait .hero-pc { display: none; }
   .hero-overlay { padding: 36px 20px 14px; }
   .hero-slogan { margin-bottom: 6px; }
@@ -1341,15 +1385,16 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
 <div class="page active" id="page-home">
   <section class="hero">
     <div class="hero-portrait">
-      <img class="hero-pc" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NsaKbjCCbonNt5x8O8CcsHCvnyh" alt="BUYANSPACE">
-      <img class="hero-mb" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/TwSdbbwlooJ77kxPiaWcA5Ddnpc" fetchpriority="high" alt="BUYANSPACE 雪松林">
+      <img class="hero-pc" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/SU5Qbc9zMow9Ifx66OjcUL3InGh" alt="BUYANSPACE">
+      <img class="hero-mb" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Bsl0bebVFoY655xzNRLcNhEonnf" fetchpriority="high" alt="BUYANSPACE 闻香空间">
       <div class="hero-overlay">
         <p class="hero-slogan">乍见之欢，不如久处不厌</p>
         <div class="hero-divider"></div>
         <p class="hero-sub">闻香的尽头，一定有 BUYANSPACE</p>
         <div class="hero-cta">
-          <button class="btn btn-primary" onclick="navigate('products')">探索产品</button>
-          <button class="btn" onclick="navigate('story')">品牌故事</button>
+          <button class="btn btn-primary" onclick="navigate('products')">探索产品<em class="btn-en">EXPLORE</em></button>
+          <button class="btn" onclick="navigate('story')">品牌故事<em class="btn-en">STORY</em></button>
+          <button class="btn" onclick="navigate('stores')">闻香空间<em class="btn-en">SPACES</em></button>
         </div>
       </div>
     </div>
@@ -1857,6 +1902,7 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
         <span class="product-detail-name">玄枢</span>
         <span class="product-detail-tag">木质调 · 3款香型</span>
       </div>
+      <div class="series-visual"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/VpyxbloKFojC2Px6FxNcN3janRg" alt="玄枢 · 木质调" loading="lazy"></div>
       <p class="product-detail-desc">定中枢自安，压得住场。以檀、松木为骨，香气干净厚重、不张扬、不甜腻，自带沉稳克制的气场。不是取悦别人的香，是稳住自己气场、不乱心神的香。职场、事业、想要稳中求进，首选玄枢系列。</p>
       <div class="scent-list">
         <div class="scent-item">
