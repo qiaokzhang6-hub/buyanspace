@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BUYANSPACE — 闻香的尽头，一定有 BUYANSPACE</title>
-<meta name="description" content="BUYANSPACE 设计事务所旗下东方香氛品牌，三代传承制香，六大系列二十二款香型。2026年10月28日深圳南头古城、天津万象城双城同步开业。">
+<meta name="description" content="BUYANSPACE 设计事务所旗下东方香氛品牌，三代传承制香，六大系列二十二款香型。已于2026年10月28日深圳南头古城、天津万象城双城同步开业。">
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@300;400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
 <style>
 :root {
@@ -44,6 +44,8 @@ h1, h2, h3, h4, h5 {
 a { color: var(--accent); text-decoration: none; }
 
 .page { display: none; min-height: 100vh; padding-top: 80px; }
+/* 首页首屏让画面顶到导航背后，配合透明导航 */
+#page-home { padding-top: 0; }
 .page.active { display: block; animation: fadeIn 0.5s ease; }
 
 @keyframes fadeIn {
@@ -64,6 +66,22 @@ a { color: var(--accent); text-decoration: none; }
   background: rgba(245,242,237,0.95);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line-soft);
+  transition: background .35s ease, border-color .35s ease;
+}
+
+/* 首屏透明导航：仅手机端（桌面首图顶部为浅色天空，白字不可读） */
+@media (max-width: 768px) {
+  .nav.on-image {
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom-color: transparent;
+  }
+  .nav.on-image .nav-logo,
+  .nav.on-image .nav-logo span,
+  .nav.on-image .nav-mobile-btn { color: rgba(255,255,255,0.96); }
+  .nav.on-image .nav-links a { color: rgba(255,255,255,0.86); }
+  .nav.on-image .nav-links a:hover,
+  .nav.on-image .nav-links a.active { color: #fff; background: rgba(255,255,255,0.16); }
 }
 
 .nav-logo {
@@ -120,11 +138,17 @@ a { color: var(--accent); text-decoration: none; }
   min-height: 600px;
 }
 
-.hero-portrait img {
+.hero-portrait img,
+.hero-portrait video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
+}
+
+.hero-portrait video {
+  display: none;
+  object-position: center 28%;
 }
 
 .hero-logo-overlay {
@@ -152,7 +176,7 @@ a { color: var(--accent); text-decoration: none; }
   right: 0;
   padding: 80px 24px 60px;
   text-align: center;
-  background: linear-gradient(transparent, rgba(245,242,237,0.95) 40%);
+  background: linear-gradient(180deg, rgba(245,242,237,0) 0%, rgba(245,242,237,0.58) 14%, rgba(245,242,237,0.94) 30%, rgba(245,242,237,0.97) 100%);
 }
 
 .hero-brand {
@@ -404,56 +428,101 @@ a { color: var(--accent); text-decoration: none; }
   line-height: 1.8;
 }
 
-/* ===== Opening Banner ===== */
-.opening-banner {
-  background: linear-gradient(135deg, var(--bg-soft) 0%, var(--bg-card) 100%);
-  border: 1px solid var(--line);
-  padding: 80px 48px;
-  text-align: center;
+
+
+/* ===== Store Carousel ===== */
+.store-carousel { margin-top: 72px; }
+.sc-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+.sc-head .section-label { text-align: left; margin-bottom: 8px; }
+.sc-name {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(20px, 2.6vw, 30px);
+  font-weight: 500;
+  letter-spacing: .16em;
+  color: var(--text);
+  line-height: 1.35;
+}
+.sc-addr { font-size: 13px; letter-spacing: .08em; color: var(--text-dim); margin-top: 10px; }
+.sc-addr-en { font-size: 11px; letter-spacing: .06em; color: var(--text-faint); margin-top: 4px; }
+.sc-viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-soft);
+}
+.sc-track {
+  display: flex;
+  width: 100%;
+  transition: transform .85s cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+}
+.sc-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-soft);
   position: relative;
   overflow: hidden;
 }
-.opening-banner::before {
-  content: '';
+.sc-slide img {
   position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 40%);
-  animation: rotate 30s linear infinite;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 58%;
+  display: block;
 }
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.sc-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2px;
+  z-index: 2;
+  padding: 3px 8px;
+  background: rgba(245,242,237,.82);
+  border-radius: 99px;
 }
-
-.opening-date {
-  font-family: 'Noto Serif SC', serif;
-  font-size: clamp(56px, 10vw, 100px);
-  font-weight: 300;
-  color: var(--accent);
-  letter-spacing: 0.1em;
-  position: relative;
-  z-index: 1;
+.sc-dot {
+  width: 22px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.opening-title {
-  font-size: clamp(18px, 2.5vw, 26px);
-  color: var(--text);
-  margin: 16px 0;
-  letter-spacing: 0.15em;
-  position: relative;
-  z-index: 1;
+.sc-dot::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(42,40,38,.3);
+  transition: background .3s, width .3s, height .3s;
 }
-
-.opening-cities {
-  font-size: 15px;
-  color: var(--text-dim);
-  letter-spacing: 0.3em;
-  margin-bottom: 32px;
-  position: relative;
-  z-index: 1;
+.sc-dot.active::after {
+  background: var(--accent);
+  width: 7px;
+  height: 7px;
 }
-.opening-cities span { color: var(--accent); }
+.sc-dot:hover::after { background: var(--accent); }
 
 /* ===== Footer ===== */
 .footer {
@@ -1186,6 +1255,8 @@ a { color: var(--accent); text-decoration: none; }
 }
 
 @media (max-width: 768px) {
+  .sc-slide { aspect-ratio: 4 / 3; }
+  .sc-slide img { object-fit: contain; object-position: 50% 50%; }
   .nav { padding: 0 24px; }
   .nav-links { display: none; }
   .nav-mobile-btn { display: block; }
@@ -1216,7 +1287,15 @@ a { color: var(--accent); text-decoration: none; }
   .brand-showcase-title { font-size: 24px; }
   .footer-content { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .hero-cta { flex-direction: column; width: 100%; max-width: 280px; }
+  .hero-cta { flex-direction: row; width: 100%; max-width: 320px; gap: 10px; }
+  .hero-cta .btn { flex: 1; padding: 13px 0; }
+  .hero-portrait .hero-pc { display: none; }
+  .hero-overlay { padding: 36px 20px 14px; }
+  .hero-slogan { margin-bottom: 6px; }
+  .hero-divider { margin: 13px auto; }
+  .hero-sub { line-height: 1.7; }
+  .hero-cta { margin-top: 16px; gap: 10px; }
+  .hero-portrait .hero-mb { display: block; }
   .btn { width: 100%; text-align: center; }
 }
 /* 隐藏平台水印 */
@@ -1249,7 +1328,10 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
 <div class="page active" id="page-home">
   <section class="hero">
     <div class="hero-portrait">
-      <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NsaKbjCCbonNt5x8O8CcsHCvnyh" alt="BUYANSPACE">
+      <img class="hero-pc" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NsaKbjCCbonNt5x8O8CcsHCvnyh" alt="BUYANSPACE">
+      <video class="hero-mb" autoplay loop muted playsinline preload="auto" fetchpriority="high" poster="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/GXXKbg1jjoZ8kOx9enScU2EBnac">
+        <source src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/FZfDbUNbeogGLzxdCWicNDTdnRd" type="video/mp4">
+      </video>
       <div class="hero-overlay">
         <p class="hero-slogan">乍见之欢，不如久处不厌</p>
         <div class="hero-divider"></div>
@@ -1399,7 +1481,7 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
     <div class="section">
       <div class="product-closeup">
     <div class="product-closeup-img-wrap">
-      <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/JjQZbEWW8oy1dDxlFF9cq3Qznnc" alt="线香与水晶香插">
+      <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/RyTCbAoDXoRnYkxJbKCc2PCln4b" alt="火柴点燃线香">
     </div>
     <div class="product-closeup-text">
       <p class="product-closeup-label">CRAFTSMANSHIP</p>
@@ -1408,12 +1490,34 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
     </div>
   </div>
 
-  <div class="opening-banner">
-        <p class="section-label" style="text-align:center;">Grand Opening</p>
-        <div class="opening-date">10.28</div>
-        <div class="opening-title">双城同步开业</div>
-        <div class="opening-cities">深圳 <span>·</span> 天津</div>
-        <button class="btn btn-primary" onclick="navigate('stores')">查看门店详情</button>
+  <div class="store-carousel" id="storeCarousel">
+        <div class="sc-head">
+          <div>
+            <p class="section-label">Store 01 · Tianjin MixC</p>
+            <h3 class="sc-name">天津万象城店</h3>
+            <p class="sc-addr">天津市河西区天津万象城三楼 D09</p>
+            <p class="sc-addr-en">Tianjin MixC, 3F, D09, Hexi District, Tianjin</p>
+          </div>
+          <button class="btn" onclick="navigate('stores')">查看门店详情</button>
+        </div>
+        <div class="sc-viewport">
+          <div class="sc-track" id="scTrack">
+            <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Ilb0b2dxKo0bZwxSMsCciTHvn1b" alt="天津万象城店 · 陈列全景"></div>
+            <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/LBVrb5CM6oNAdcxdFcccOJSanVg" alt="天津万象城店 · 中岛全景"></div>
+            <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/SP3EbPY99o0bSLx3eLpcJHbSnmh" alt="天津万象城店 · 香品陈列台"></div>
+            <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/MDCpbRxrNoTwuCxN6qBc7YSDntF" alt="天津万象城店 · 香罐矩阵"></div>
+            <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/MXWcb56PjovtjKxdB42c1grEnhg" alt="天津万象城店 · 俯视陈列"></div>
+            <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/YW96brc1xocpCoxINVlclONxn8e" alt="天津万象城店 · 香品与价签细节"></div>
+          </div>
+          <div class="sc-dots" id="scDots">
+            <button class="sc-dot active" aria-label="第 1 张"></button>
+            <button class="sc-dot" aria-label="第 2 张"></button>
+            <button class="sc-dot" aria-label="第 3 张"></button>
+            <button class="sc-dot" aria-label="第 4 张"></button>
+            <button class="sc-dot" aria-label="第 5 张"></button>
+            <button class="sc-dot" aria-label="第 6 张"></button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2193,8 +2297,9 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
 <div class="page" id="page-stores">
   <div class="story-hero">
     <p class="section-label">Our Stores</p>
-    <h1 class="section-title">10月28日，<br><em>双城同步开业</em></h1>
-    <p class="section-desc">深圳南头古城店 · 天津万象城店。从南到北，东方香气双城绽放。</p>
+    <h1 class="section-title">双城已开，<br><em>香已燃起</em></h1>
+    <p class="section-desc" style="margin-bottom: 12px;">天津万象城店 · 深圳南头古城店。一南一北，两处可以停下来闻香的地方。</p>
+    <p class="section-desc">门一直开着，欢迎进来坐坐，点一支香。</p>
   </div>
 
   <section class="section" style="padding-top:0;">
@@ -2579,7 +2684,28 @@ function navigate(page) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   document.getElementById('navLinks').classList.remove('open');
   location.hash = page;
+  syncNav();
 }
+
+(function initHeroVideo() {
+  var v = document.querySelector('.hero-mb');
+  if (!v) return;
+  var kick = function () { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); };
+  kick();
+  v.addEventListener('loadeddata', kick);
+  v.addEventListener('canplay', kick);
+  document.addEventListener('touchstart', kick, { once: true, passive: true });
+  document.addEventListener('click', kick, { once: true });
+})();
+
+function syncNav() {
+  var nav = document.querySelector('.nav');
+  var home = document.getElementById('page-home');
+  var onHome = home && home.classList.contains('active');
+  if (onHome && window.scrollY < 60) { nav.classList.add('on-image'); }
+  else { nav.classList.remove('on-image'); }
+}
+window.addEventListener('scroll', syncNav, { passive: true });
 
 function toggleMobileNav() {
   document.getElementById('navLinks').classList.toggle('open');
@@ -2625,6 +2751,73 @@ var observer = new MutationObserver(function() {
 });
 observer.observe(document.body, { childList: true, subtree: true });
 setInterval(hideWatermark, 1000);
+</script>
+
+<script>
+// 店铺轮播
+(function () {
+  try {
+    var el = document.getElementById('storeCarousel');
+    if (!el) return;
+    var track = document.getElementById('scTrack');
+    if (!track) return;
+    var slides = track.querySelectorAll('.sc-slide');
+    var dots = el.querySelectorAll('.sc-dot');
+    if (slides.length < 2) return;
+    var index = 0;
+    var timer = null;
+
+    var vp = el.querySelector('.sc-viewport');
+    function slideWidth() {
+      var s = slides[0];
+      return s ? s.getBoundingClientRect().width : (vp ? vp.clientWidth : 0);
+    }
+    function go(n) {
+      index = (n % slides.length + slides.length) % slides.length;
+      track.style.transform = 'translateX(' + (-index * slideWidth()) + 'px)';
+      for (var k = 0; k < dots.length; k++) {
+        dots[k].classList.toggle('active', k === index);
+      }
+    }
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+    function start() {
+      stop();
+      timer = setInterval(function () { go(index + 1); }, 4500);
+    }
+
+    for (var k = 0; k < dots.length; k++) {
+      (function (n) {
+        dots[n].addEventListener('click', function () { go(n); start(); });
+      })(k);
+    }
+
+    el.addEventListener('mouseenter', stop);
+    el.addEventListener('mouseleave', start);
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { stop(); } else { start(); }
+    });
+    window.addEventListener('resize', function () { go(index); });
+
+    var startX = null;
+    el.addEventListener('touchstart', function (e) {
+      if (e.touches && e.touches.length) { startX = e.touches[0].clientX; stop(); }
+    }, { passive: true });
+    el.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) { go(dx < 0 ? index + 1 : index - 1); }
+      startX = null;
+      start();
+    }, { passive: true });
+
+    go(0);
+    start();
+  } catch (err) {
+    if (window.console && console.warn) console.warn('carousel init failed', err);
+  }
+})();
 </script>
 
 </body>
