@@ -146,7 +146,7 @@ a { color: var(--accent); text-decoration: none; }
   object-position: center top;
 }
 
-.hero-portrait video {
+.hero-portrait .hero-mb {
   display: none;
   object-position: center 28%;
 }
@@ -1329,9 +1329,7 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
   <section class="hero">
     <div class="hero-portrait">
       <img class="hero-pc" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NsaKbjCCbonNt5x8O8CcsHCvnyh" alt="BUYANSPACE">
-      <video class="hero-mb" autoplay loop muted playsinline preload="auto" fetchpriority="high" poster="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/GXXKbg1jjoZ8kOx9enScU2EBnac">
-        <source src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/FZfDbUNbeogGLzxdCWicNDTdnRd" type="video/mp4">
-      </video>
+      <img class="hero-mb" src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/TwSdbbwlooJ77kxPiaWcA5Ddnpc" fetchpriority="high" alt="BUYANSPACE 雪松林">
       <div class="hero-overlay">
         <p class="hero-slogan">乍见之欢，不如久处不厌</p>
         <div class="hero-divider"></div>
@@ -2687,16 +2685,7 @@ function navigate(page) {
   syncNav();
 }
 
-(function initHeroVideo() {
-  var v = document.querySelector('.hero-mb');
-  if (!v) return;
-  var kick = function () { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); };
-  kick();
-  v.addEventListener('loadeddata', kick);
-  v.addEventListener('canplay', kick);
-  document.addEventListener('touchstart', kick, { once: true, passive: true });
-  document.addEventListener('click', kick, { once: true });
-})();
+
 
 function syncNav() {
   var nav = document.querySelector('.nav');
