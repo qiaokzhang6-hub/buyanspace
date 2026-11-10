@@ -302,6 +302,17 @@ a { color: var(--accent); text-decoration: none; }
 }
 .section-title em { font-style: normal; color: var(--accent); }
 
+.poster-band {
+  margin: 48px auto;
+  max-width: 520px;
+}
+.poster-band img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
 .section-desc {
   font-size: 15px;
   color: var(--text-dim);
@@ -319,34 +330,86 @@ a { color: var(--accent); text-decoration: none; }
   border: 1px solid var(--line);
 }
 
+.section-highlights { padding-top: 44px; padding-bottom: 44px; }
+
 .highlight {
   background: var(--bg);
-  padding: 48px 36px;
+  padding: 22px 28px;
   text-align: center;
   transition: background 0.3s;
 }
 .highlight:hover { background: var(--bg-card); }
 
+.highlight-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .highlight-num {
   font-family: 'Noto Serif SC', serif;
-  font-size: 56px;
+  font-size: 30px;
   font-weight: 400;
+  line-height: 1.1;
   color: var(--accent);
-  margin-bottom: 16px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.06em;
+  margin: 0;
 }
 
 .highlight-label {
-  font-size: 14px;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.1;
   color: var(--text);
-  letter-spacing: 0.1em;
-  margin-bottom: 8px;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.highlight-meta {
+  font-size: 10px;
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.highlight-sub {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  margin-top: 3px;
+  min-height: 21px;
+  text-wrap: balance;
+}
+.highlight-sub .sub-en,
+.highlight-sub-en {
+  font-size: 10px;
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
 }
 
 .highlight-desc {
   font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-top: 9px;
+}
+
+.highlight-desc-en {
+  font-size: 9.5px;
   color: var(--text-faint);
-  line-height: 1.8;
+  line-height: 1.7;
+  letter-spacing: 0;
+  margin-top: 2px;
+  text-wrap: balance;
 }
 
 /* ===== Product Cards ===== */
@@ -783,6 +846,9 @@ a { color: var(--accent); text-decoration: none; }
   background: #EDE8E0;
 }
 .series-visual img { display: block; width: 100%; }
+.series-visual-narrow { aspect-ratio: 720 / 894; }
+.series-visual-tall { aspect-ratio: 640 / 1026; }
+.series-visual-3x4 { aspect-ratio: 7079 / 9480; }
 .series-visual::after {
   content: "";
   position: absolute;
@@ -1020,6 +1086,20 @@ a { color: var(--accent); text-decoration: none; }
   margin-top: 8px;
   position: relative;
   z-index: 1;
+}
+.store-sz { position: relative; }
+.store-sz .sc-slide img { object-position: 50% 50%; }
+.store-visual-cap {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  z-index: 2;
+  pointer-events: none;
+  background: rgba(245,242,237,.88);
+  padding: 6px 12px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--text);
 }
 
 .market-info {
@@ -1435,8 +1515,13 @@ a { color: var(--accent); text-decoration: none; }
     border-bottom: 1px solid var(--line);
   }
   .section { padding: 60px 24px; }
+  .poster-band { max-width: none; margin: 36px -24px; }
+  .poster-band img { border-radius: 0; }
   .series-visual { max-width: 100%; margin-top: 26px; }
   .highlights { grid-template-columns: 1fr; }
+  .highlight { padding: 18px 20px; }
+  .highlight-num { font-size: 24px; }
+  .highlight-label { font-size: 24px; }
   .products-grid { grid-template-columns: 1fr; }
   .featured-grid { grid-template-columns: 1fr; }
   .story-content, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1521,31 +1606,34 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-highlights">
     <div class="highlights">
       <div class="highlight">
-        <div class="highlight-num">貳拾貳</div>
-        <div style="font-size:12px; color:var(--text-faint); letter-spacing:0.1em; margin-bottom:8px;">22 Kinds</div>
-        <div class="highlight-label">款香型</div>
-        <div style="font-size:11px; color:var(--text-faint); letter-spacing:0.1em; margin-bottom:8px;">Fragrances</div>
-        <div class="highlight-desc">六大系列，从木质到古方，覆盖所有场景</div>
-        <div style="font-size:11px; color:var(--text-faint); letter-spacing:0.05em; margin-top:4px;">Six collections, from woody to classical, for every moment</div>
+        <div class="highlight-head">
+          <div class="highlight-num">陸大</div>
+          <div class="highlight-label">系列</div>
+        </div>
+        <div class="highlight-sub">22 款香型<span class="sub-en">22 Kinds · Fragrances</span></div>
+        <div class="highlight-desc">从木质到古方，覆盖所有场景</div>
+        <div class="highlight-desc-en">Six collections, from woody to classical, for every moment</div>
       </div>
       <div class="highlight">
-        <div class="highlight-num">叁代</div>
-        <div style="font-size:12px; color:var(--text-faint); letter-spacing:0.1em; margin-bottom:8px;">3 Generations</div>
-        <div class="highlight-label">传承制香</div>
-        <div style="font-size:11px; color:var(--text-faint); letter-spacing:0.1em; margin-bottom:8px;">Heritage Craft</div>
+        <div class="highlight-head">
+          <div class="highlight-num">參代</div>
+          <div class="highlight-label">传承制香</div>
+        </div>
+        <div class="highlight-sub highlight-sub-en">3 Generations · Heritage Craft</div>
         <div class="highlight-desc">纯手工纯植物原料，近80%工序匠人亲手完成</div>
-        <div style="font-size:11px; color:var(--text-faint); letter-spacing:0.05em; margin-top:4px;">Handcrafted with pure natural ingredients</div>
+        <div class="highlight-desc-en">Handcrafted with pure natural ingredients</div>
       </div>
       <div class="highlight">
-        <div class="highlight-num">六城</div>
-        <div style="font-size:12px; color:var(--text-faint); letter-spacing:0.1em; margin-bottom:8px;">6 Cities</div>
-        <div class="highlight-label">设计足迹</div>
-        <div style="font-size:11px; color:var(--text-faint); letter-spacing:0.1em; margin-bottom:8px;">Design Footprint</div>
+        <div class="highlight-head">
+          <div class="highlight-num">陸城</div>
+          <div class="highlight-label">设计足迹</div>
+        </div>
+        <div class="highlight-sub highlight-sub-en">6 Cities · Design Footprint</div>
         <div class="highlight-desc">深圳 · 北京 · 天津 · 洛杉矶 · 香港 · 新加坡</div>
-        <div style="font-size:11px; color:var(--text-faint); letter-spacing:0.05em; margin-top:4px;">Shenzhen · Beijing · Tianjin · Los Angeles · Hong Kong · Singapore</div>
+        <div class="highlight-desc-en">Shenzhen · Beijing · Tianjin · Los Angeles · Hong Kong · Singapore</div>
       </div>
     </div>
   </section>
@@ -1555,8 +1643,8 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
       <p class="section-label">Product Series</p>
       <h2 class="section-title" onclick="navigate('products')" style="cursor:pointer;">六大系列，<em>二十二款</em>香型</h2>
       <p class="section-desc">从木质到花香，从果香到茶甜，从手搓花瓣到古方经典。每一款都有它独特的情绪和场景。</p>
-      <div style="text-align: center; margin: 48px 0;">
-        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/PiHlbAoK5oWPBvxvBYdcqmPGn8c" alt="BUYANSPACE" style="max-width: 380px; width: 100%; border-radius: 2px;">
+      <div class="poster-band">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/RkqgbgxpEoDE0wxZ1Heck0Pjnmf" alt="BUYANSPACE" width="720" height="1080" loading="lazy">
       </div>
       <div class="products-grid">
         <div class="product-card" onclick="goSeries('xuanshu')">
@@ -2074,6 +2162,7 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
         <span class="product-detail-name">观微</span>
         <span class="product-detail-tag">花香草木调 · 3款香型</span>
       </div>
+      <div class="series-visual series-visual-narrow"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Rm9xbKDGlocU5HxjUogcqT0hnVb" alt="观微 · 花香草木调" loading="lazy"></div>
       <p class="product-detail-desc">照观心于微，闻见自己。清雅草木花香，清冷细腻、干净通透，没有浓郁的脂粉感。这是一支向内修行、治愈情绪的香，不求外放的氛围，只求内心清明、思维澄澈。适合喜欢安静、独处、读书思考的人。</p>
       <div class="scent-list">
         <div class="scent-item">
@@ -2123,7 +2212,7 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
         <span class="product-detail-name">和融</span>
         <span class="product-detail-tag">果香调 · 3款香型</span>
       </div>
-      <p class="product-detail-desc">福煦然生春，福绥自至。温柔治愈的清甜果香，温润雅致、甜而不腻，是所有人都能接受的百搭香调。这款香主打和暖之气，调和心境与周遭氛围，让身心松弛、诸事顺遂。日常居家、会客待客、节庆祈福都很合适。</p>
+      <div class="series-visual"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Kp96boMl2onpWnxjTfncEpKfn5c" alt="和融 · 果香调" loading="lazy"></div><p class="product-detail-desc">福煦然生春，福绥自至。温柔治愈的清甜果香，温润雅致、甜而不腻，是所有人都能接受的百搭香调。这款香主打和暖之气，调和心境与周遭氛围，让身心松弛、诸事顺遂。日常居家、会客待客、节庆祈福都很合适。</p>
       <div class="scent-list">
         <div class="scent-item">
           <div class="scent-code">No.7</div>
@@ -2171,7 +2260,7 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
         <span class="product-detail-name">归息</span>
         <span class="product-detail-tag">茶/甜食调 · 3款香型</span>
       </div>
-      <p class="product-detail-desc">安各归其根，尘劳暂放。归息是整套香里的「疗愈收尾之味」，茶汤的温润搭配奶香的柔和，烟火感温柔治愈。这一调不为登场，只为退场。把白天交出去的自己，一寸一寸领回来。</p>
+      <div class="series-visual series-visual-tall"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/JkBFbQTp6oVMOWxYkW4cPZhJnFU" alt="归息 · 茶香甜食调" loading="lazy"></div><p class="product-detail-desc">安各归其根，尘劳暂放。归息是整套香里的「疗愈收尾之味」，茶汤的温润搭配奶香的柔和，烟火感温柔治愈。这一调不为登场，只为退场。把白天交出去的自己，一寸一寸领回来。</p>
       <div class="scent-list">
         <div class="scent-item">
           <div class="scent-code">No.10</div>
@@ -2219,6 +2308,7 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
         <span class="product-detail-name">微芳</span>
         <span class="product-detail-tag">花瓣香 · 5款香型</span>
       </div>
+      <div class="series-visual series-visual-narrow"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/VSlQbeyH9ozUeOxPaGtcxi6bnNb" alt="微芳 · 花瓣香" loading="lazy"></div>
       <p class="product-detail-desc">微为细微，芳为芬芳。微是花香最细腻、最不易察觉的那一层，芳是花瓣手搓的本真气息。五味各有微态——茉莉微凉、玉兰微甜、玫瑰微柔、薰衣草微安、绿茶微醒。都是不声不响就漫过来的那点香，手搓真实花瓣的温和草本香。</p>
       <div class="scent-list">
         <div class="scent-item">
@@ -2285,7 +2375,7 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
         <span class="product-detail-name">古韵</span>
         <span class="product-detail-tag">古方经典 · 5款香型</span>
       </div>
-      <p class="product-detail-desc">古为古方，韵为韵味。古是流传千年的经典香方，韵是古方里藏着的那股岁月气韵。五味各有古意——龙涎御殿之贵、二苏旧局之文、鹅梨帐中之暖、老山凝韵之厚、雪中春信之雅。每一款都带着岁月沉淀的厚重，有出处、有故事、有讲究。</p>
+      <div class="series-visual series-visual-3x4"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/GS7IbHEtYoveRdxxjyQcrPpGnwf" alt="古韵 · 古方经典" loading="lazy"></div><p class="product-detail-desc">古为古方，韵为韵味。古是流传千年的经典香方，韵是古方里藏着的那股岁月气韵。五味各有古意——龙涎御殿之贵、二苏旧局之文、鹅梨帐中之暖、老山凝韵之厚、雪中春信之雅。每一款都带着岁月沉淀的厚重，有出处、有故事、有讲究。</p>
       <div class="scent-list">
         <div class="scent-item">
           <div class="scent-code">S1</div>
@@ -2520,9 +2610,20 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
         <p class="store-detail"><strong>定位</strong>华南首店 · 东方散香铺子</p>
         <p class="store-detail"><strong>特色</strong>南头古城历史文化街区，设计师独立选品，水晶香插系列，伴手礼包装</p>
       </div>
-      <div class="store-visual" style="background:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/M9edbuKfRo4ZOqxag1rcnnZxnCd') center/contain no-repeat; background-color:var(--bg);">
-        <div class="store-visual-icon">深圳</div>
-        <div class="store-visual-label">南头古城 · 华南首店</div>
+      <div class="store-carousel store-sz">
+        <div class="sc-viewport">
+          <div class="sc-track" id="szTrack">
+              <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/MQysbqobco6SakxhtXZc3oC3nqd" alt="南头古城店 · 正面门头" loading="lazy"></div>
+              <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Sa0Kb67IroCcEcxJItrcs99vnCg" alt="南头古城店 · 斜角全景" loading="lazy"></div>
+              <div class="sc-slide"><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Nv8lbi2waoDxQaxAnBgcAt2mnHh" alt="南头古城店 · 灯箱特写" loading="lazy"></div>
+          </div>
+          <div class="sc-dots" id="szDots">
+                <button class="sc-dot active" aria-label="第 1 张"></button>
+                <button class="sc-dot" aria-label="第 2 张"></button>
+                <button class="sc-dot" aria-label="第 3 张"></button>
+          </div>
+        </div>
+        <div class="store-visual-cap">南头古城 · 华南首店</div>
       </div>
     </div>
 
@@ -2569,62 +2670,34 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
           <div class="og-dots"></div>
         </div>
       </div>
-      <div class="og-scheme">
+            <div class="og-scheme">
         <h4>方案二 · 多经点位</h4>
         <p>开放式柜台阵列，紧凑灵活，适配各种商场点位与面积。</p>
         <div class="og-carousel">
           <div class="og-viewport">
           <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/N4yVbyGTOohsAcx1OYAczarynIg" alt="主效果图" loading="lazy">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/RTiSb1Rwgo3BlfxYfY5cqPinnvd" alt="主效果图" loading="lazy">
             <div class="gallery-label">主效果图</div>
           </div>
           <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/G0Vyb7VoPon42ExifQgc3x6KnYb" alt="正面" loading="lazy">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/A6W9b0l4MoPtmCxreXPcFCKEnde" alt="正面" loading="lazy">
             <div class="gallery-label">正面</div>
           </div>
           <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/OIRHbuGuYo4j3zx0dm0cbPuPnQc" alt="斜角" loading="lazy">
-            <div class="gallery-label">斜角</div>
-          </div>
-          <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/HHd1bLWCroDGSfxNxr5c4UP1nhg" alt="侧面" loading="lazy">
-            <div class="gallery-label">侧面</div>
-          </div>
-          <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/YS09bLxqyouqC4xrrEcctIHcnKp" alt="展示区" loading="lazy">
-            <div class="gallery-label">展示区</div>
-          </div>
-          <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/VlhtbfIMLoiE4lxy1dPcXKQznkh" alt="品牌墙" loading="lazy">
-            <div class="gallery-label">品牌墙</div>
-          </div>
-          <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/YLYobKvhuoQsUIxtqYocI3uBngc" alt="正面全景" loading="lazy">
-            <div class="gallery-label">正面全景</div>
-          </div>
-          <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/LkkubgoUXovIQExPiO1c64D6nOd" alt="俯视" loading="lazy">
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/BFQ9bztcho4xYixid7nczda0nPe" alt="俯视" loading="lazy">
             <div class="gallery-label">俯视</div>
           </div>
           <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/T6H8bJ2SXoDsjIxLDZ6cc381nyf" alt="斜角全景" loading="lazy">
-            <div class="gallery-label">斜角全景</div>
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/L6ZObVYqfo2rUbx4njvcGJ19n0b" alt="正视图" loading="lazy">
+            <div class="gallery-label">正视图</div>
           </div>
           <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/L9EBb2lWVo1MfNxHcuqcxmJHnnh" alt="侧面全景" loading="lazy">
-            <div class="gallery-label">侧面全景</div>
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/OvHwbGTlNoGg0KxgVJOc3B2mnpG" alt="斜角" loading="lazy">
+            <div class="gallery-label">斜角</div>
           </div>
           <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/QmRbbAgrTouIZKxoY77czoQrn0f" alt="中岛正面" loading="lazy">
-            <div class="gallery-label">中岛正面</div>
-          </div>
-          <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/D324bq7W9o5Pz3xy12tcLtX2nGe" alt="中岛斜角" loading="lazy">
-            <div class="gallery-label">中岛斜角</div>
-          </div>
-          <div class="og-item">
-            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/WRVFba0JeoyhfOxv3c8cQZLfnYd" alt="中岛侧面" loading="lazy">
-            <div class="gallery-label">中岛侧面</div>
+            <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/CAPYbJunHoIDZSx0lnVchHxDn5b" alt="近景" loading="lazy">
+            <div class="gallery-label">近景</div>
           </div>
           </div>
           <button class="og-arrow og-prev" aria-label="上一张">‹</button>
@@ -2632,7 +2705,7 @@ iframe[src*="doubao"], iframe[src*="aiforce"] {
           <div class="og-dots"></div>
         </div>
       </div>
-      <div class="og-scheme">
+<div class="og-scheme">
         <h4>方案三 · 单店标准款</h4>
         <p>落地门店的正面、侧面与背面，白底正视图，看清结构、材质与柜台排布。</p>
         <div class="og-carousel">
@@ -3121,6 +3194,7 @@ setInterval(hideWatermark, 1000);
       start();
     }
     init('tjTrack', 'tjDots');
+    init('szTrack', 'szDots');
   } catch (e) {}
 })();
 </script>
